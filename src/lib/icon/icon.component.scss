@@ -1,0 +1,11 @@
+:host {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

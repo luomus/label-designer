@@ -1,0 +1,13 @@
+<div [ngStyle]="setup.page" class="ll-page">
+  <div class="ll-print-content" [ngStyle]="{'grid-template-columns': cols, 'grid-template-rows': rows, 'border': setup.border}">
+    <ll-label-preview [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel" [style.border-right]="setup.border" [style.border-bottom]="setup.border" [setup]="setup" *ngFor="let item of data" [data]="item"></ll-label-preview>
+  </div>
+</div>
+<ng-container *ngIf="setup.twoSided">
+  <div [ngStyle]="backStyle" class="ll-page">
+    <div class="ll-print-content" [ngStyle]="{'grid-template-columns': cols, 'grid-template-rows': rows, 'direction': 'rtl', 'border': setup.border}">
+      <ll-label-preview [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel" [style.border-left]="setup.border" [style.border-bottom]="setup.border"
+                        [backside]="true" [setup]="setup" *ngFor="let item of data" [data]="item"></ll-label-preview>
+    </div>
+  </div>
+</ng-container>

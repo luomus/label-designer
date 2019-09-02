@@ -1,0 +1,33 @@
+{
+  "name": "label-designer",
+  "version": "3.1.2",
+  "author": "Ville-Matti Riihikoski",
+  "contributors": [
+    "Ville-Matti Riihikoski <ville-matti.riihikoski@helsinki.fi>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/luomus/laji.fi-front/src/development/projects/label-designer/"
+  },
+  "bugs": {
+    "email": "helpdesk@laji.fi"
+  },
+  "keywords": [
+    "angular",
+    "angular-cdk",
+    "bootstrap",
+    "javascript"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": ">=7.0.0",
+    "@angular/core": ">=7.0.0",
+    "@angular/cdk": ">=7.0.0",
+    "@types/node": "^10.0.0",
+    "angularx-qrcode": "^1.5.1",
+    "jszip": "^3.2.0",
+    "file-saver": "^2.0.0",
+    "ngx-webstorage": "^3.0.2",
+    "xlsx": "0.13.2"
+  }
+}

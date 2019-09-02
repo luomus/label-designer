@@ -1,0 +1,42 @@
+:host {
+  width: 100%;
+}
+
+select {
+  border: 1px solid #ccc;
+}
+
+.more {
+  position: absolute;
+  right: 35px;
+  top: 8px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+}
+
+table td {
+  height: 30px;
+}
+
+table td:last-child, table td:first-child {
+  text-align: right;
+}
+
+table td:nth-child(2) {
+  width: 100%;
+}
+
+.more-container {
+  position: relative;
+  min-height: 30px;
+  padding: 0 15px;
+}
+
+.delete {
+  padding: 5px 0 5px 5px;
+  cursor: pointer;
+}
+

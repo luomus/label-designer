@@ -1,0 +1,30 @@
+<slot></slot>
+<ng-container *ngIf="availableFields && availableFields.length">
+  <div class="reset-container" *ngIf="!isSame">
+    <button type="button" class="btn btn-default btn-sm" (click)="availableFieldsChange.emit(defaultAvailableFields)">{{ 'reset' | translate }}</button>
+  </div>
+  <h3 class="first">{{ 'Available fields' | translate }}</h3>
+  <input type="search" placeholder="{{ 'search' | translate }}..." style="margin-bottom: 10px;" class="form-control" (keyup)="filter($event.target.value)">
+  <div *ngFor="let field of (availableFields | searchFields:filterBy )" class="new-field-container">
+    <div class="field-add link" (click)="addField(field)" [title]="'add to label' | translate ">
+      <ll-icon type="right" [size]="15"></ll-icon>
+    </div>
+    <div
+      cdkDrag
+      (cdkDragReleased)="onNewFieldDragEnd($event)"
+      [cdkDragData]="field"
+      (cdkDragStarted)="dragging.emit(true)"
+      (cdkDragEnded)="dragging.emit(false)"
+      class="new-field"
+      [title]="field.label"
+    >
+      {{field.label}}
+    </div>
+  </div>
+  <div *ngIf="setup.twoSided">
+    <label>
+      {{ 'Add fields to the backside' | translate }}
+      <input type="checkbox" [checked]="addToBackside" (change)="toggleBackside()">
+    </label>
+  </div>
+</ng-container>

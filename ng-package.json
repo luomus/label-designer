@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/label-designer",
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "@ngx-translate/core": "ngx-translate-core",
+      "@ngx-translate/core/index": "ngx-translate-core",
+      "file-saver": "fileSaver",
+      "jszip": "JSZip",
+      "angularx-qrcode": "angularxQrcode",
+      "ngx-webstorage": "ngxWebstorage",
+      "xlsx": "XLSX",
+      "ngx-bootstrap": "ngxBootstrap"
+    }
+  }
+}

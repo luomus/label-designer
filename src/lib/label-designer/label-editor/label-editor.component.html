@@ -1,0 +1,53 @@
+<table>
+  <tr>
+    <td>
+      <div class="editor-area">
+        <div class="editor" id="{{backSide ? 'back-side-label-editor' : 'label-editor'}}" [ngStyle]="_magnifiedStyle" *ngIf="init">
+          <ll-editor-grid *ngIf="gridVisible" [grid]="grid" [magnification]="_magnification"></ll-editor-grid>
+          <ng-container *ngIf="backSide; else frontSide">
+            <ll-editor-item
+              *ngFor="let item of _setup.backSideLabelItems; let i=index"
+              [grid]="grid"
+              [magnification]="_magnification"
+              [item]="item"
+              [boundary]="'#back-side-label-editor'"
+              (done)="done.emit()"
+              (itemClick)="setActiveItem($event)"
+              (itemChange)="onItemChange(item, $event)"
+              [active]="item === active"
+              [maxWidth]="_setup.label['width.mm']"
+              [maxHeight]="_setup.label['height.mm']"
+              (showSettings)="showSettings.emit($event)"
+            ></ll-editor-item>
+          </ng-container>
+          <ng-template #frontSide>
+            <ll-editor-item
+              *ngFor="let item of _setup.labelItems; let i=index"
+              [grid]="grid"
+              [magnification]="_magnification"
+              [item]="item"
+              [boundary]="'#label-editor'"
+              (done)="done.emit()"
+              (itemClick)="setActiveItem($event)"
+              (itemChange)="onItemChange(item, $event)"
+              [active]="item === active"
+              [maxWidth]="_setup.label['width.mm']"
+              [maxHeight]="_setup.label['height.mm']"
+              (showSettings)="showSettings.emit($event)"
+            ></ll-editor-item>
+          </ng-template>
+        </div>
+      </div>
+    </td>
+    <td *ngIf="!backSide" class="height-settings">
+      <input style="width: 30px" type="text" [value]="_setup.label['height.mm']" (change)="updateDimensions($event, 'height.mm', 'label')">mm.
+    </td>
+  </tr>
+  <tr *ngIf="!backSide">
+    <td class="width-settings">
+      <input style="width: 30px" type="text" [value]="_setup.label['width.mm']" (change)="updateDimensions($event, 'width.mm', 'label')">mm.
+    </td>
+    <td></td>
+  </tr>
+</table>
+<ll-ruler *ngIf="!init" (measured)="init = true"></ll-ruler>

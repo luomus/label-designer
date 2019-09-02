@@ -1,0 +1,11 @@
+<svg width="100%" height="100%">
+
+  <!-- Let's define the pattern -->
+  <!-- The width and height should be double the circle radius we plan to use -->
+  <pattern id="pattern-circles" x="-1" y="-1" [attr.width]="size" [attr.height]="size" patternUnits="userSpaceOnUse">
+    <circle fill="#aaa" cx="1" cy="1" r="1" />
+  </pattern>
+  <!-- The canvas with our applied pattern -->
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+
+</svg>

@@ -1,0 +1,21 @@
+.editor-area {
+  box-shadow: 0 0 0 1px #333, 3px 3px 0 1px #777;
+  display: inline-block;
+}
+
+.editor {
+  box-shadow: 0 0 0 1px #ccc;
+  position: relative;
+}
+
+.height-settings, .width-settings {
+  padding: 15px;
+}
+
+.height-settings {
+  vertical-align: center;
+}
+
+.width-settings {
+  text-align: center;
+}

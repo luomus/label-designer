@@ -1,0 +1,55 @@
+h3 {
+  padding-bottom: 15px;
+}
+.mapping-container {
+  background-color: #fefefefe;
+  margin: 0 -15px;
+  padding: 15px;
+}
+
+.actions {
+  padding-bottom: 5px;
+}
+
+h3, .mapping-container {
+  border-bottom: 1px solid #aaa;
+}
+
+.remove-btn {
+  float: right;
+  width: 20px;
+}
+
+.map-header {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 0 15px;
+}
+
+.header-icon {
+  display: block;
+  margin-top: -4px;
+}
+
+.refresh-btn {
+  margin-left: 15px;
+}
+.main-col {
+  width: calc(50% - 20px);
+}
+.small-col {
+  width: 20px;
+  margin-top: 3px;
+  padding-left: 3px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+.clear {
+  clear: both;
+}

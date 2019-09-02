@@ -1,0 +1,6 @@
+<div [class]="btnClass" *ngIf="!visible"><ng-content></ng-content></div>
+<div #pagesContainer [class.print-area]="!visible">
+  <ng-container *ngIf="printing && pages">
+    <ll-label-page *ngFor="let page of pages" [data]="page" [setup]="setup" [pageLayout]="pageLayout" (ready)="printReady()" [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel"></ll-label-page>
+  </ng-container>
+</div>

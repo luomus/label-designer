@@ -1,0 +1,29 @@
+<div class="map-header link" (click)="open = !open">
+  <h3>
+    <span class="header-icon right">
+      <ll-icon [type]="open ? 'down' : 'up'"></ll-icon>
+    </span>
+    {{title}}
+  </h3>
+</div>
+<div *ngIf="open" class="mapping-container">
+  <div class="actions">
+    <div class="link remove-btn" (click)="remove.emit()"><ll-icon type="close"></ll-icon></div>
+    <button class="btn btn-default btn-sm" [disabled]="mapping[''] === '' || !!mapping['']" type="button" (click)="addNew()">{{'add' | translate}}...</button>
+    <ll-icon class="link refresh-btn" type="refresh" (click)="refresh.emit()" [title]="'Add uniques values from data' | translate"></ll-icon>
+  </div>
+  <div *ngFor="let map of mapping | keyvalue">
+    <div class="main-col left">
+      <input type="text" [value]="map.key" (change)="changeKey(map.key, $event.target.value)" class="form-control">
+    </div>
+    <div class="small-col left">-></div>
+    <div class="small-col right link" (click)="removeKey(map.key)">
+      <ll-icon type="close" size="14"></ll-icon>
+    </div>
+    <div class="main-col right">
+      <input type="text" [value]="map.value" class="form-control" (change)="changeValue(map.key, $event.target.value)">
+    </div>
+  </div>
+  <div style="clear: both"></div>
+</div>
+

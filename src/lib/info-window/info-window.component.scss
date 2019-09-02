@@ -1,0 +1,45 @@
+$dialog-width: 400px;
+
+.info-window {
+  position: fixed;
+  background-color: #f7f7f7;
+  width: $dialog-width;
+  max-width: 80vw;
+  top: 20%;
+  left: 50%;
+  color: #555;
+  margin-left: ($dialog-width / 2) * -1;
+  border-radius: 5px;
+  box-shadow: 4px 6px 35px 4px rgba(0,0,0,0.61);
+
+  max-height: calc(100vh - 20% - 50px);
+  min-height: 200px;
+
+  z-index: 10000;
+
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    flex-shrink: 0;
+    padding: 10px 10px 5px 10px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .content {
+    flex: 1 1 auto;
+    padding: 30px 30px 10px 30px;
+    background-color: #fefefe;
+    overflow: auto;
+  }
+
+  .actions {
+    flex-shrink: 0;
+    border-top: 1px solid #ddd;
+    padding: 5px;
+    text-align: right;
+  }
+
+}

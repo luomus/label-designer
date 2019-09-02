@@ -1,0 +1,6 @@
+<ng-container *ngIf="_field.type === fieldType.qrCode; else plainText">
+  <qrcode [qrdata]="_field.content" [size]="size" [level]="qrCodeErrorCorrectionLevel" [usesvg]="true"></qrcode>
+</ng-container>
+<ng-template #plainText>
+  <span *ngIf="_field.prefix && (_field.content | hasValue)" [innerHTML]="_field.prefix" [ngStyle]="_prefixStyle"></span><span [ngStyle]="_contentStyle" [innerHtml]="_field.content"></span><span *ngIf="_field.suffix && (_field.content | hasValue)" [ngStyle]="_suffixStyle" [innerHTML]="_field.suffix"></span><span *ngIf="((_field.content | hasValue) && !isLast) || _field.separatorAlways" [innerHTML]="_field.separator | separator"></span>
+</ng-template>

@@ -1,0 +1,75 @@
+<div class="ll-setting-row">
+  <table class="input">
+    <tr>
+      <td colspan="2">
+        <div style="text-align: right">
+          <div class="btn-group btn-sm ll-setting-row" role="group" style="padding-right: 0; padding-left: 0">
+            <button type="button" class="btn btn-default btn-sm"
+                    *ngIf="showUnderline"
+                    [class.active]="fontSettings && fontSettings['text-decoration']"
+                    (click)="change('text-decoration', fontSettings && fontSettings['text-decoration'] ? undefined : 'underline')"
+            ><ll-icon type="font-underline" size="18"></ll-icon></button>
+            <button type="button" class="btn btn-default btn-sm"
+                    [class.active]="fontSettings && fontSettings['font-weight']"
+                    (click)="change('font-weight', fontSettings && fontSettings['font-weight'] ? undefined : 'bold')"
+            ><ll-icon type="font-bold" size="18"></ll-icon></button>
+            <button type="button" class="btn btn-default btn-sm"
+                    [class.active]="fontSettings && fontSettings['font-style']"
+                    (click)="change('font-style', fontSettings && fontSettings['font-style'] ? undefined : 'italic')"
+            ><ll-icon type="font-italic" size="18"></ll-icon></button>
+          </div>
+          <div class="btn-group btn-sm ll-setting-row" role="group" *ngIf="!minimal">
+            <button type="button" class="btn btn-default btn-sm"
+                    [class.active]="fontSettings && fontSettings['text-align'] === 'left'"
+                    (click)="change('text-align', fontSettings && fontSettings['text-align'] === 'left' ? undefined : 'left')"
+            ><ll-icon type="align-left" size="18"></ll-icon></button>
+            <button type="button" class="btn btn-default btn-sm"
+                    [class.active]="fontSettings && fontSettings['text-align'] === 'center'"
+                    (click)="change('text-align', fontSettings && fontSettings['text-align'] === 'center' ? undefined : 'center')"
+            ><ll-icon type="align-center" size="18"></ll-icon></button>
+            <button type="button" class="btn btn-default btn-sm"
+                    [class.active]="fontSettings && fontSettings['text-align'] === 'right'"
+                    (click)="change('text-align', fontSettings && fontSettings['text-align'] === 'right' ? undefined : 'right')"
+            ><ll-icon type="align-right" size="18"></ll-icon></button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>{{ 'Font' | translate }}:</td>
+      <td>
+        <select style="width: 100%" class="form-control input-sm" (change)="change('font-family', $event.target.value)">
+          <option value="" *ngIf="allowEmptyFontFamily"></option>
+          <option *ngFor="let family of fontFamily" [value]="family" [selected]="fontSettings && family === fontSettings['font-family']">{{family}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>{{ 'Font size' | translate }}:</td>
+      <td>
+        <select class="form-control input-sm" style="width: 60px;" (change)="change('font-size.pt', $event.target.value, true)">
+          <option value=""></option>
+          <option *ngFor="let size of fontSizes" [value]="size" [selected]="fontSettings && size === fontSettings['font-size.pt']">{{size}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr *ngIf="!minimal">
+      <td>{{ 'Line spacing' | translate }}:</td>
+      <td>
+        <select class="form-control input-sm" style="width: 60px;" (change)="change('line-height', $event.target.value)">
+          <option value=""></option>
+          <option *ngFor="let size of lineHeight" [value]="size" [selected]="fontSettings && size == fontSettings['line-height']">{{size}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>{{ 'Transform' | translate }}:</td>
+      <td>
+        <select class="form-control input-sm" (change)="change('text-transform', $event.target.value)">
+          <option value=""></option>
+          <option *ngFor="let value of textTransform" [value]="value" [selected]="fontSettings && value === fontSettings['text-transform']">{{value | translate}}</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+</div>

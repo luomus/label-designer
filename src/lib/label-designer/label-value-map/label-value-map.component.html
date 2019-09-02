@@ -1,0 +1,12 @@
+<ll-field-add
+  [availableFields]="addableFields"
+  (add)="addNewField($event)"
+></ll-field-add>
+<ll-field-value-map
+  *ngFor="let field of mapped"
+  [title]="fieldLookup[field]?.label"
+  [mapping]="valueMap[field]"
+  (mappingChange)="updateFieldMap(field, $event)"
+  (remove)="removeFromMap(field)"
+  (refresh)="addMappingByField(field)"
+></ll-field-value-map>

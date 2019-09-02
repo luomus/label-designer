@@ -1,0 +1,270 @@
+$menu-height: 24px;
+$menu-color: #333;
+$menu-border-color: #777;
+$menu-text-color: #eee;
+$error-color: #900;
+$settings-border-color: #aaa;
+$settings-bg-color: #efefef;
+$settings-text-color: #333;
+$settings-row-height: 33px;
+$small-screen: 900px;
+
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+:host ::ng-deep .label-editor-window {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  overflow: hidden;
+  border: 1px solid $menu-border-color;
+  background-color: #fefefe;
+  z-index: 10;
+
+  input.error {
+    border-color: $error-color;
+  }
+
+  .ellipsis {
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+  }
+
+
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .menubar {
+    min-height: $menu-height;
+    width: 100%;
+    color: #333;
+    background: $menu-color;
+    z-index: 22;
+    border-bottom: 1px solid $menu-border-color;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        font-size: smaller;
+        height: $menu-height;
+        display: block;
+        float: left;
+        padding: 4px 15px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($menu-color, 10%);
+          border-bottom: 1px solid $menu-border-color;
+
+          a {
+            color: lighten($menu-text-color, 90%);
+            text-decoration: none;
+          }
+        }
+
+        &.info {
+          background: none;
+          border-bottom: none;
+          float: right;
+          cursor: default;
+          color: $menu-text-color;
+        }
+
+        a {
+          color: $menu-text-color;
+        }
+
+        &.active {
+          background-color: lighten($menu-color, 10%);
+          border-bottom: 1px solid $menu-border-color;
+        }
+
+      }
+    }
+  }
+
+  .window-content {
+    display: flex;
+    width: 100%;
+    height: calc(100% - #{$menu-height});
+  }
+
+  h3 {
+    margin: 15px -15px 0 -15px;
+    font-size: 100%;
+    font-weight: 900;
+    display: block;
+    padding: 15px 15px 5px 15px;
+    border-top: 1px solid $settings-border-color;
+
+    &.first {
+      border-top: none;
+      margin-top: 0;
+    }
+  }
+
+  .settings-wrap {
+
+    svg {
+      fill: #333;
+    }
+
+    .close-settings {
+      padding: 15px;
+      border-bottom: 1px solid $menu-border-color;;
+      margin: -15px -15px 15px -15px;
+      display: none;
+
+      &:hover {
+        background-color: darken($settings-bg-color, 10%);
+      }
+    }
+
+    @media screen and (max-width: $small-screen)  {
+      .close-settings {
+        display: block;
+      }
+    }
+
+    &.main {
+      flex-basis: 300px;
+      flex-shrink: 0;
+      border-right: 1px solid $settings-border-color;
+      padding: 15px;
+      background-color: $settings-bg-color;
+    }
+    height: 100%;
+    overflow-y: auto;
+    color: $settings-text-color;
+    user-select: none;
+    label {
+      font-weight: normal;
+    }
+    table {
+      td {
+        height: $settings-row-height;
+      }
+      td:first-child {
+        text-align: right;
+      }
+      td:nth-child(2) {
+        padding-left: 5px;
+      }
+      &.input {
+        width: 100%;
+
+        .btn-group:last-child {
+          padding-right: 0;
+        }
+
+      }
+      &.icon {
+        margin-left: -15px;
+        width: calc(100% + 30px);
+        td:first-child {
+          width: 40px;
+          text-align: right;
+          margin-right: 5px;
+        }
+      }
+      &.margins {
+        width: 155px;
+        margin-left: 40px;
+      }
+      &.md-input {
+        width: 50px;
+      }
+      tr {
+        &.link {
+          &:hover {
+            background-color: darken($settings-bg-color, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .settings-wrap.dragging {
+    overflow-y: unset;
+  }
+
+  .tab-content {
+    height: 100%;
+  }
+
+  .editor-wrap {
+    flex: 1 1 auto;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  .editor-space, .preview-space {
+    padding: 45px 10px 45px 45px;
+    overflow: visible;
+  }
+
+  .preview-elements {
+    margin-bottom: 5px;
+    margin-right: 5px;
+    transform-origin: left top;
+    display: inline-block;
+  }
+
+  .editor-space {
+    border-bottom: 1px solid $settings-border-color;
+  }
+
+  .disabled {
+    color: #aaa;
+    svg {
+      fill: #aaa;
+    }
+  }
+
+  .editor-end {
+    width: 100%;
+  }
+
+  .link {
+    cursor: pointer;
+    font-weight: normal;
+  }
+
+  .fill {
+    display: block;
+    height: $settings-row-height;
+    margin: 0;
+    padding: 5px 0;
+  }
+
+  table.generate, table.file, table.user-input {
+    td {
+      height: $settings-row-height;
+      label {
+        font-weight: normal;
+        margin: 0;
+      }
+      &:first-child {
+        text-align: right;
+        padding-right: 5px;
+      }
+    }
+  }
+
+  .clear {
+    clear: both;
+  }
+
+}

@@ -1,0 +1,14 @@
+<div
+  *ngIf="init"
+  class="ll-label"
+  [ngStyle]="labelStyle"
+>
+  <ll-label-item
+    *ngFor="let item of items"
+    [item]="item"
+    [data]="data"
+    [valueMap]="setup.valueMap || {}"
+    [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel"
+  ></ll-label-item>
+</div>
+<ll-ruler *ngIf="!init" (measured)="init = true"></ll-ruler>

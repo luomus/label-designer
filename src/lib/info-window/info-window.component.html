@@ -1,0 +1,35 @@
+<ng-container *ngIf="visible$ | async">
+  <div class="info-window" cdkDrag *ngIf="data$ | async; let data">
+    <div class="title" cdkDragHandle>
+      <span [innerHTML]="data.title"></span>
+      <div class="close" (click)="infoWindowService.close()">
+        <ll-icon type="close"></ll-icon>
+      </div>
+    </div>
+    <div class="content">
+      <ng-container *ngIf="isTemplate; else plainHtml">
+        <ng-container *ngTemplateOutlet="data.content"></ng-container>
+      </ng-container>
+      <ng-template #plainHtml>
+        <div [innerHTML]="data.content" *ngIf="isTemplate"></div>
+      </ng-template>
+    </div>
+    <div class="actions" *ngIf="data.actions">
+      <ng-container *ngTemplateOutlet="data.actions"></ng-container>
+    </div>
+    <div class="actions" *ngIf="data.actionTypes">
+      <ng-container [ngSwitch]="data.actionTypes">
+        <ng-container *ngSwitchCase="'yesNo'">
+          <div class="btn btn-default" (click)="infoWindowService.close(true)">{{ 'Yes' | translate }}</div>
+          <div class="btn btn-default" (click)="infoWindowService.close(false)">{{ 'No' | translate }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'cancel'">
+          <div class="btn btn-default" (click)="infoWindowService.close()">{{ 'Cancel' | translate }}</div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <div class="btn btn-default" (click)="infoWindowService.close()">{{ 'Ok' | translate }}</div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

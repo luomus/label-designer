@@ -1,0 +1,28 @@
+{
+  "name": "Label Designer",
+  "watch": false,
+  "serve": false,
+  "assetsFolder": "screenshots",
+  "disableGraph":true,
+  "disablePrivate": true,
+  "disableProtected": true,
+  "disableLifeCycleHooks": true,
+  "disableCoverage": true,
+  "disableInternal": true,
+  "navTabConfig": [
+    {
+      "id": "example",
+      "label": "Overview"
+    },
+    {
+      "id": "readme",
+      "label": "Readme"
+    },
+    {
+      "id": "info",
+      "label": "Info"
+    }
+  ],
+  "includes": "docs",
+  "tsconfig": "./tsconfig.lib.json"
+}

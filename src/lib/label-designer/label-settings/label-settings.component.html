@@ -1,0 +1,78 @@
+<ng-container *ngIf="selectedLabelItem; else missingField">
+  <div (click)="remove(selectedLabelItem)" style="margin-top: 10px;" class="pull-right"><ll-icon size="20" type="close"></ll-icon></div>
+  <h3 class="first">{{ 'Field' | translate }}</h3>
+  <ll-font-settings
+    *ngIf="showFieldFont"
+    [allowEmptyFontFamily]="true"
+    [fontSettings]="selectedLabelItem.style"
+    (fontSettingsChange)="changeSelectedItem('style', $event)"
+    [showUnderline]="true"
+  ></ll-font-settings>
+  <div class="position">
+    <table class="margins">
+      <tr>
+        <td>{{ 'left' | translate }}:</td>
+        <td>
+          <input class="form-control" type="text" [value]="round(selectedLabelItem.x)" (change)="changePosition('x', $event)">
+        </td>
+        <td>mm.</td>
+      </tr>
+      <tr>
+        <td>{{ 'top' | translate }}:</td>
+        <td>
+          <input class="form-control" type="text" [value]="round(selectedLabelItem.y)" (change)="changePosition('y', $event)">
+        </td>
+        <td>mm.</td>
+      </tr>
+      <tr>
+        <td>{{ 'width' | translate }}:</td>
+        <td>
+          <input class="form-control" type="text" [value]="round(selectedLabelItem.style['width.mm'])" (change)="changeActiveStyle('width.mm', $event)">
+        </td>
+        <td>mm.</td>
+      </tr>
+      <tr>
+        <td>{{ 'height' | translate }}:</td>
+        <td>
+          <input class="form-control" type="text" [value]="round(selectedLabelItem.style['height.mm'])" (change)="changeActiveStyle('height.mm', $event)">
+        </td>
+        <td>mm.</td>
+      </tr>
+    </table>
+  </div>
+  <div cdkDropList [cdkDropListLockAxis]="'y'" class="field-list" (cdkDropListDropped)="drop($event)">
+    <div cdkDrag class="field-item" *ngFor="let field of selectedLabelItem.fields; let i=index">
+      <div class="field-item-drag-handle" cdkDragHandle>
+          <ll-icon type="drag-handle"></ll-icon>
+      </div>
+      <ll-field-settings [allowDelete]="canDelete" [field]="field" (fieldChange)="fieldUpdate($event, i)" (fieldRemove)="fieldRemove(i)"></ll-field-settings>
+    </div>
+  </div>
+  <ll-field-add *ngIf="showFieldFont" [availableFields]="availableFields" (add)="fieldAdd($event)"></ll-field-add>
+</ng-container>
+<ng-template #missingField>
+  <h3 class="first">{{ 'Field' | translate }}</h3>
+  {{ 'No active field selected' | translate }}
+</ng-template>
+<h3>{{ 'Label' | translate }}</h3>
+<ll-font-settings [fontSettings]="setup.label" (fontSettingsChange)="change('label', $event)"></ll-font-settings>
+<ll-margin-settings [style]="setup.label" (styleChange)="change('label', $event)"></ll-margin-settings>
+<div class="ll-setting-row">
+  {{ 'Border' | translate }}
+  <table class="margins">
+    <tr>
+      <td></td>
+      <td>
+        <select class="form-control" (change)="change('border', $event.target.value)">
+          <option *ngFor="let border of borders | keyvalue" [value]="border.value" [selected]="border.value === setup.border">{{border.key | translate}}</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+</div>
+<h3>{{ 'Page' | translate }}</h3>
+<ll-margin-settings [style]="setup.page" [type]="'padding'" (styleChange)="change('page', $event)"></ll-margin-settings>
+<label>
+  <input type="checkbox" [checked]="setup.twoSided" (change)="change('twoSided', !setup.twoSided)" />
+  {{ 'Two sided (flip horizontal)' | translate }}
+</label>

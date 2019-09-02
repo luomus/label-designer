@@ -1,0 +1,39 @@
+$border-color: #999;
+$bg-color: #fafafa;
+$space: 5px;
+$height: 32px;
+$field-width: 180px;
+$add-btn-width: 28px;
+
+
+.new-field, .field-add {
+  height: $height;
+  border: 1px solid $border-color;
+  vertical-align: center;
+}
+
+.new-field {
+  padding: $space;
+  width: $field-width;
+  margin-bottom: 5px;
+  background-color: $bg-color;
+  z-index: 21;
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  cursor: grab;
+}
+.new-field-container {
+  width: $add-btn-width + $field-width;
+}
+.field-add {;
+  width: $add-btn-width;
+  float: right;
+  padding: ($space - 2) $space $space $space;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.reset-container {
+  float: right;
+  margin-top: -5px;
+}

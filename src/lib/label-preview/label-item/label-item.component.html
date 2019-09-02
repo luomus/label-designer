@@ -1,0 +1,10 @@
+<div
+  class="ll-label-item"
+  [ngStyle]="_item.style"
+  [style.top.mm]="_item.y"
+  [style.left.mm]="_item.x"
+>
+  <ng-container *ngFor="let field of _item.fields; let l=last">
+    <ll-label-item-field [size]="size" [field]="field" [isLast]="l" [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel"></ll-label-item-field>
+  </ng-container>
+</div>

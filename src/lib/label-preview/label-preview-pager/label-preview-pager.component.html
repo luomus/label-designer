@@ -1,0 +1,9 @@
+<ng-container *ngIf="total > 1">
+  <span class="link move" style="margin-left: 15px;" (click)="move(-1)">
+    <ll-icon type="left" [size]="10"></ll-icon>
+  </span>
+  {{active + 1}}/{{total}}
+  <span class="link move" style="margin-left: 8px;" (click)="move(1)">
+    <ll-icon type="right" [size]="10"></ll-icon>
+  </span>
+</ng-container>

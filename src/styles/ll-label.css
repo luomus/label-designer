@@ -1,0 +1,29 @@
+/**
+Content of this file needs to be copied to label-print.component.ts
+so that this styling will be included in the generated pdf
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.ll-print-content {
+  display: grid;
+  grid-gap: 0;
+  grid-auto-flow: column;
+  align-items: start;
+  justify-items: start;
+  page-break-inside: avoid;
+  page-break-after: always;
+}
+.ll-label-item {
+  position: absolute;
+  overflow: hidden;
+}
+.ll-label {
+  position: relative;
+  overflow: hidden;
+}
+.ll-label.preview {
+  border: 1px solid #333;
+}

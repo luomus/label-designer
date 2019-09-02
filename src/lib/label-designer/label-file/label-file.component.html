@@ -1,0 +1,84 @@
+<table class="icon">
+  <tr class="link" (click)="makeNew()" *ngIf="newSetup">
+    <td>
+    </td>
+    <td>
+      {{ 'New' | translate }}
+    </td>
+  </tr>
+  <tr class="link">
+    <td>
+      <label class="link fill" for="file"><ll-icon type="load" [size]="20"></ll-icon></label>
+    </td>
+    <td>
+      <label class="link fill" for="file">{{ 'Load' | translate }}</label>
+      <input class="inputfile" type="file" name="file" id="file" (change)="onFileChange($event)">
+    </td>
+  </tr>
+  <tr class="link" (click)="save()">
+    <td>
+      <ll-icon type="save" [size]="20"></ll-icon>
+    </td>
+    <td>
+      {{ 'Save' | translate }}...
+    </td>
+  </tr>
+</table>
+<ng-container *ngIf="recentFiles.length > 0">
+  <h3>{{ 'Recent files' | translate }}</h3>
+  <table class="icon">
+    <tr class="link" *ngFor="let recent of recentFiles; let i=index">
+      <td (click)="loadSetup(recent)"></td>
+      <td (click)="loadSetup(recent)">{{ recent.filename | removeSuffix }}</td>
+      <td style="width: 24px" class="link" (click)="removeRecent(i)">
+        <ll-icon type="close" size="14"></ll-icon>
+      </td>
+    </tr>
+  </table>
+</ng-container>
+<ng-container *ngIf="presets && presets.length > 0">
+  <h3>{{ 'Templates' | translate }}</h3>
+  <table class="icon">
+    <tr class="link" *ngFor="let preset of presets">
+      <td (click)="loadSetup(preset)"></td>
+      <td (click)="loadSetup(preset)">{{ preset.name }}</td>
+      <td style="width: 24px" class="link" (click)="loadSetup(preset)">
+      </td>
+    </tr>
+  </table>
+</ng-container>
+<h3>{{ 'Labels' | translate }}</h3>
+<table class="icon">
+  <tr class="link" (click)="print()" [class.disabled]="!data || data.length === 0">
+    <td>
+    </td>
+    <td>
+      <ll-label-print #printBtn [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel" [visible]="false" [btnClass]="'menu-item'" [setup]="setup" [data]="data" (html)="onHtml($event)" (pressed)="startPdfLoading()">
+        {{ 'Download labels (pdf)' | translate }}...<ll-loader [loading]="pdfLoading"></ll-loader>
+      </ll-label-print>
+    </td>
+  </tr>
+</table>
+<ng-template #saveTpl>
+  <table class="save user-input">
+    <tr><td><label for="saveFile">{{ 'Filename' | translate }}:</label></td><td><input id="saveFile" (keyup)="updateSaveData('file', $event.target.value)" [value]="saveData.file || ''" type="text" class="form-control input-sm"></td></tr>
+    <tr *ngIf="data && data.length > 0">
+      <td></td>
+      <td><label>
+        <input (change)="updateSaveData('includeData', !saveData.includeData)" [checked]="saveData.includeData" type="checkbox">
+        {{ 'Include data' | translate }}
+      </label></td>
+    </tr>
+  </table>
+</ng-template>
+<ng-template #saveActionsTpl>
+  <button (click)="doSave()" [disabled]="!saveData.file" class="btn btn-default btn-sm pull-right">{{ 'Save' | translate }}</button>
+</ng-template>
+<ng-template #makePdfTpl>
+  <table class="save user-input">
+    <tr><td><label for="saveFile">{{ 'Filename' | translate }}:</label></td><td><input id="pdfFile" (keyup)="pdfFile = $event.target.value" [value]="pdfFile || ''" type="text" class="form-control input-sm"></td></tr>
+  </table>
+</ng-template>
+<ng-template #makePdfActionsTpl>
+  <button (click)="doPrint()" [disabled]="!pdfFile" class="btn btn-default btn-sm pull-right">{{ 'Download' | translate }}</button>
+</ng-template>
