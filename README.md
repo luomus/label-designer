@@ -17,6 +17,6 @@ There are few ways you can use this library.
 Read the online documentation [here](https://luomus.github.io/label-designer).
 
 ## Contributing
-Development is a community effort, and we encourage participation. Please read the [contribution guide](additional-documentation/contributing.html) for details.
+Development is a community effort, and we encourage participation. Please read the [contribution guide](https://luomus.github.io/label-designer/additional-documentation/contributing.html) for details.
 
-Please note that the 'label-designer' project is released with a [Contributor Code of Conduct](additional-documentation/contributor-code-of-conduct.html). By contributing to this project, you agree to abide by its terms.
+Please note that the 'label-designer' project is released with a [Contributor Code of Conduct](https://luomus.github.io/label-designer/additional-documentation/contributor-code-of-conduct.html). By contributing to this project, you agree to abide by its terms.

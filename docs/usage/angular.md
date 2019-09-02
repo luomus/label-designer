@@ -1,6 +1,6 @@
 # Using as Angular module
 
-Installation steps 
+To start using this library do the following steps: 
 1. Make sure that you all the [dependencies](../dependencies.html) installed.
 2. Import the `LabelDesignerModule` from `label-designer` package in the module 
 where you want to use it.
@@ -29,57 +29,57 @@ export class AppModule { }
 
 You're required to give setup object but everything else is optional, all though giving available
 fields is highly recommended. Basic setup should something like this:
-```json5
+```json
 {
-  page: {
+  "page": {
     // Basic presets class is provided by the Label Designer and you can use that to include
     // different page sizes and known border styles 
-    'height.mm': 297,
-    'width.mm': 210,
-    'paddingTop.mm': 10,
-    'paddingLeft.mm': 10,
-    'paddingBottom.mm': 10,
-    'paddingRight.mm': 10
+    "height.mm": 297,
+    "width.mm": 210,
+    "paddingTop.mm": 10,
+    "paddingLeft.mm": 10,
+    "paddingBottom.mm": 10,
+    "paddingRight.mm": 10
   },
-  label: {
-    'height.mm': 20,
-    'width.mm': 50,
-    'marginTop.mm': 1.5,
-    'marginLeft.mm': 1.5,
-    'marginBottom.mm': 1.5,
-    'marginRight.mm': 1.5,
-    'font-family': 'Arial',
-    'font-size.pt': 9
+  "label": {
+    "height.mm": 20,
+    "width.mm": 50,
+    "marginTop.mm": 1.5,
+    "marginLeft.mm": 1.5,
+    "marginBottom.mm": 1.5,
+    "marginRight.mm": 1.5,
+    "font-family": "Arial",
+    "font-size.pt": 9
   },
-  labelItems: [
+  "labelItems": [
     {
-      type: 'field',
-      style: {
-        'width.mm': 13,
-        'height.mm': 13,
+      "type": "field",
+      "style": {
+        "width.mm": 13,
+        "height.mm": 13,
       },
-      x: 0, // x position im mm
-      y: 0, // y position im mm
-      fields: [
+      "x": 0, // x position im mm
+      "y": 0, // y position im mm
+      "fields": [
         {
-          field: 'uri',                     // value for this is picked from the data with this key.
-          content: 'http://example.com/ID', // This is displayed in the preview (with qr-code type QR Code is displayed instead)
-          label: 'URI - QRCode',            // This label that is visible on the editor.
-          type: FieldType.qrCode            // This is optional and editor will enable special features based on this.
+          "field": "uri",                     // value for this is picked from the data with this key.
+          "content": "http://example.com/ID", // This is displayed in the preview (with qr-code type QR Code is displayed instead)
+          "label": "URI - QRCode",            // This label that is visible on the editor.
+          "type": FieldType.qrCode            // This is optional and editor will enable special features based on this.
         }
       ]
     },
     {
-      type: 'field',
-      style: {
-        'width.mm': 35,
-        'height.mm': 5,
+      "type": "field",
+      "style": {
+        "width.mm": 35,
+        "height.mm": 5,
       },
-      x: 15,
-      y: 0,
-      fields: [
-        {field: 'uri', content: 'http://example.com/ID', label: 'URI', type:  FieldType.uri},
-        {field: 'species', content: 'Parus major', label: 'Species'}
+      "x": 15,
+      "y": 0,
+      "fields": [
+        {"field": "uri", "content": "http://example.com/ID", "label": "URI", "type":  FieldType.uri},
+        {"field": "species", "content": "Parus major", "label": "Species"}
       ]
     }
   ]
@@ -89,7 +89,7 @@ If you're using [json schema spec](http://json-schema.org/) you can use provided
 [SchemaService](../../injectables/SchemaService.html) to 
 extract available fields data for you. Please note that all the features of json schema are not supported.
 Basic availableFields looks something like this:
-```json5
+```json
 [
   {
     "field": "uri",                     // Values is picked from this key on the data

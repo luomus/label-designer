@@ -17,7 +17,7 @@ diagnose the problem. Screenshots are also helpful.
 *  We recommend that you create a Git branch for each pull request (PR).
 *  New code should follow the style used in the project.
 *  We use [compodoc](https://compodoc.app/) for documentation.
-*  For user-facing changes, add a bullet to the top of `NEWS.md` below the
+*  For user-facing changes, add a bullet to the top of `docs/CHANGELOG.md` below the
 current development version header describing the changes made followed by your
 username, and links to relevant issue(s)/PR(s).
 

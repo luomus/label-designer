@@ -1,7 +1,8 @@
 # Usage
 
-There are few ways on how the Label Designer can be used. There is the Angular
-module that can be imported to any angular project. On top of that there is a
-custom html element that can be imported on any site and an Electron app that
-can be used as a standalone application on Linux, Windows and Mac.
+There are three main ways you can use this library.
+1. [Angular library](https://luomus.github.io/label-designer/additional-documentation/usage/angular-component.html)
+2. [Custom element](https://luomus.github.io/label-designer/additional-documentation/usage/custom-html-element.html)
+3. [Standalone application](https://luomus.github.io/label-designer/additional-documentation/usage/standalone-app.html)
 
+For more information on any specific way click the corresponding link above.
