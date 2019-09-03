@@ -269,3 +269,7 @@ export interface ILabelValueMap {
     [value: string]: string
   };
 }
+
+export interface ILabelData {
+  [key: string]: string|number|boolean|string[];
+}

@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ILabelField } from './label-designer.interface';
+import { ILabelData, ILabelField } from './label-designer.interface';
 
 export interface ISchemaOptions {
   skip?: string[];
   special?: {[field: string]: ILabelField[]};
+}
+
+interface ILabelFieldMap {
+  [field: string]: ILabelField;
 }
 
 @Injectable({
@@ -15,13 +19,99 @@ export class SchemaService {
    * Convert json schema to list of label fields. This list can be used for the
    * [LabelDesigner components availableFields]{@link LabelDesignerComponent#availableFields}.
    */
-  schemaToAvailableFields(schema: any, base: ILabelField[], options?: ISchemaOptions): ILabelField[] {
+  schemaToAvailableFields(schema: any, base?: ILabelField[], options?: ISchemaOptions): ILabelField[] {
+    if (!base) {
+      base = [];
+    }
     this.convertSchema('', '', schema, base, options);
-    if (options) {
-      if (options.skip) {
-        base = base.filter(field => !options.skip.includes(field.field));
+    if (options && options.skip) {
+      base = base.filter(field => !options.skip.includes(field.field));
+    }
+    return base;
+  }
+
+  /**
+   * Convert data matching schema to a data that can be displayed in the Label Designer.
+   * @param {string} select level to choose as a base in multidimensional arrays of objects.
+   *        If there are levels under this only the first item will be picked. If there is no
+   *        value given then the root will be used and only one item from arrays beneath it will be selected
+   */
+  convertSchemaDataToLabelData(schema: any, data: object[], select?: string, options?: ISchemaOptions): ILabelData[] {
+    return this.convertDataToLabelData(this.schemaToAvailableFields(schema, [], options), data, select);
+  }
+
+  /**
+   * Convert data matching label fields ({@link ILabelField}) to a data that can be displayed im the Label Designer.
+   * @param {string} select level to choose as a base in multidimensional arrays of objects.
+   *        If there are levels under this only the first item will be picked. If there is no
+   *        value given then the root will be used and only one item from arrays beneath it will be selected
+   */
+  convertDataToLabelData(fields: ILabelField[], data: object[], select?: string): ILabelData[] {
+    const fieldMap: ILabelFieldMap = fields.reduce((cumulative, current) => {
+      cumulative[current.field] = current;
+      return cumulative;
+    }, {});
+    const result = [];
+    try {
+      (data || []).forEach(item => result.push(...this.convertData(item, fieldMap, select) as ILabelData[]));
+    } catch (e) {
+      console.error(e);
+    }
+    return result;
+  }
+
+  private convertData(
+    data: object,
+    fields: ILabelFieldMap,
+    select?: string,
+    result = [],
+    base: ILabelData = {},
+    parent = '',
+    lvl = 0
+  ): ILabelData|ILabelData[] {
+    if (typeof data !== 'object') {
+      return base;
+    }
+    const arrays = [];
+    const selected = [];
+    for (const key in data) {
+      if (!data.hasOwnProperty(key)) {
+        continue;
+      }
+      const path = this.getPath(parent, key);
+      if (fields[path]) {
+        base[path] = data[key];
+        if (path === select) {
+          result.push(base);
+        }
+      } else if (Array.isArray(data[key])) {
+        if (data[key].length > 0) {
+          if (path === select) {
+            selected.push(key);
+          } else {
+            arrays.push(key);
+          }
+        }
+      } else {
+        this.convertData(data[key], fields, select, result, base, path, lvl + 1);
       }
     }
+
+    arrays.forEach(key => {
+      this.convertData(data[key][0], fields, select, result, base, this.getPath(parent, key), lvl + 1);
+    });
+
+    selected.forEach(key => {
+      data[key].forEach(item => {
+        result.push(this.convertData(item, fields, select, result, {...base}, this.getPath(parent, key), lvl + 1));
+      });
+    });
+
+    if (lvl === 0) {
+      console.log('RESULT', selected ? result : [base]);
+      return selected ? result : [base];
+    }
+
     return base;
   }
 
@@ -30,7 +120,7 @@ export class SchemaService {
       case 'object':
         if (schema.properties) {
           Object.keys(schema.properties).forEach(field => {
-            this.convertSchema((path ? path + '.' : '') + field, schema.title || parentLabel, schema.properties[field], base, options);
+            this.convertSchema(this.getPath(path, field), schema.title || parentLabel, schema.properties[field], base, options);
           });
         }
         break;
@@ -54,7 +144,11 @@ export class SchemaService {
     return base;
   }
 
-  private getLabel(item, parent: string) {
+  private getPath(parent: string, field: string): string {
+    return parent ? parent + '.' + field : field;
+  }
+
+  private getLabel(item, parent: string): string {
     return item.title + (parent ? ' - ' + parent : '');
   }
 

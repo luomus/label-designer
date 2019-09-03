@@ -2,7 +2,8 @@
 
 This Angular library enables users to design their own printable labels.
 Visuals and the fields for the label can be defined by the users.
-This was developed specimen data in mind, but this can be used for other kinds of labels also.
+This was developed natural history museum specimen data in mind, but nothing prevents
+it from being used for other kinds of labels also.
 
 ![editor](screenshots/editor.png)
 

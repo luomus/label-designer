@@ -5,8 +5,9 @@
 so make sure that it meets your needs before choosing this usage option. Some of the missing 
 features can be added with polyfills, but the library itself will not include these.
 2. Include the library where you want to use it. You can either install this from npm or copy it
-from FinBIF cdn to your server. Address is `https://cdn.laji.fi/label-designer/<version>/editor.js`
-(please copy it to your own server instead of referring it directly on cdn.laji.fi)
+from FinBIF cdn to your server. Address is `https://cdn.laji.fi/label-designer/<version>/editor.js`.
+    * Please copy it to your own server instead of referring it directly on cdn.laji.fi
+(not all versions are available there and when new version is release older versions are removed there periodically).
 3. Use tag on the page you like
 ```html
 <label-designer></label-designer>
@@ -24,7 +25,9 @@ labelDesigner.availableFields = [...];
 // To access outputs you need to addEventListeners to corresponding events
 labelDesigner.addEventListener('html', function(event) {
    // event.detail will hold the emitted value.
+   // This event is returning object with html and filename properties so you can access them like this:
    var html = event.detail.html;
+   var filename = event.detail.filename;
 });
 ```
 

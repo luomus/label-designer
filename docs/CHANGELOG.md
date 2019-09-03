@@ -1,9 +1,10 @@
-<!--
-<a name="3.1.2"></a>
-# 3.1.2 (2019-09-?)
+<a name="3.1.3"></a>
+# 3.1.3 (2019-09-?)
 
 ### Features
--->
+* **core:** added method to convert data according to schema to match available fields.
+* **core:** new interface to better describe what kind of data can be used as data for the labels.
+* **core:** base parameter in schemaToAvailableFields is now optional.
 
 <a name="3.1.1"></a>
 # 3.1.1 (2019-08-30)
