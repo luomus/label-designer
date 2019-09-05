@@ -25,14 +25,14 @@ export class SchemaService {
     }
     this.convertSchema('', '', schema, base, options);
     if (options && options.skip) {
-      base = base.filter(field => !options.skip.includes(field.field));
+      base = base.filter(field => options.skip.indexOf(field.field) === -1);
     }
     return base;
   }
 
   /**
    * Convert data matching schema to a data that can be displayed in the Label Designer.
-   * @param {string} select level to choose as a base in multidimensional arrays of objects.
+   * @param select level to choose as a base in multidimensional arrays of objects.
    *        If there are levels under this only the first item will be picked. If there is no
    *        value given then the root will be used and only one item from arrays beneath it will be selected
    */
@@ -42,7 +42,7 @@ export class SchemaService {
 
   /**
    * Convert data matching label fields ({@link ILabelField}) to a data that can be displayed im the Label Designer.
-   * @param {string} select level to choose as a base in multidimensional arrays of objects.
+   * @param select level to choose as a base in multidimensional arrays of objects.
    *        If there are levels under this only the first item will be picked. If there is no
    *        value given then the root will be used and only one item from arrays beneath it will be selected
    */
@@ -108,7 +108,6 @@ export class SchemaService {
     });
 
     if (lvl === 0) {
-      console.log('RESULT', selected ? result : [base]);
       return selected ? result : [base];
     }
 

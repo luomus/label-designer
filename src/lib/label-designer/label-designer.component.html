@@ -57,6 +57,10 @@
         ></ll-label-file>
         <h3>{{ 'Data' | translate }}</h3>
         <table class="icon">
+          <tr class="link" [class.disabled]="!data || data.length === 0" (click)="clearData()">
+            <td></td>
+            <td>{{ 'Clear' | translate }}</td>
+          </tr>
           <tr class="link" (click)="openGenerate()">
             <td></td>
             <td>{{ 'Generate' | translate }}...</td>

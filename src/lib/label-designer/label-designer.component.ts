@@ -97,7 +97,7 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
   /**
    * @internal
    */
-  version = '3.1.2';
+  version = '3.1.5';
   /**
    * @internal
    */
@@ -353,6 +353,10 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
     this.setPreviewActive(this.previewActive);
   }
 
+  get setup(): ISetup {
+    return this._setup;
+  }
+
   /**
    * @internal
    */
@@ -550,6 +554,14 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
     if (!this.generate.uri) {
       this.generate.uri = this.defaultDomain;
     }
+    LabelService.forEachField(this.setup, (field) => {
+      if (field.type === FieldType.text) {
+        const key = FieldKeyPipe.getKey(field);
+        if (typeof this.generate.data[key] === 'undefined') {
+          this.generate.data[key] = field.label;
+        }
+      }
+    });
     this.infoWindowService.open({
       title: this.translateService.get('Generate label data'),
       content: this.generateTpl,
@@ -617,6 +629,17 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
     this.dataChange.emit(this.data);
   }
 
+  clearData() {
+    if (!this.data || this.data.length === 0) {
+      return;
+    }
+    if (confirm(this.translateService.get('Are you sure that you want to clear the data form the label?'))) {
+      this.data = [];
+      this.resetContent();
+      this.dataChange.emit(this.data);
+    }
+  }
+
   /**
    * @internal
    */
@@ -626,16 +649,22 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
 
   private findTheHighestId(setup: ISetup) {
     let id = 0;
-    ['labelItems', 'backSideLabelItems'].forEach(items => {
-      if (setup[items]) {
-        setup[items].map(item => {
-          if (item._id > id) {
-            id = item._id;
-          }
-        });
+    LabelService.forEachLabelItem(setup, (item) => {
+      if (item._id > id) {
+        id = item._id;
       }
     });
     return id;
+  }
+
+  private resetContent() {
+    const setup = this._setup;
+    LabelService.forEachField(setup, (field) => {
+      if (field.type === FieldType.text) {
+        field.content = field.label;
+      }
+    });
+    this.setupChanged(setup, false);
   }
 
   /**

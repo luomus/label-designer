@@ -7,10 +7,12 @@ where you want to use it.
 ```
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 import { LabelDesignerModule } from 'label-designer';
 @NgModule({
     imports: [
         BrowserModule,
+        NgxWebstorageModule.forRoot({prefix: 'LD-', separator: ''}),
         LabelDesignerModule
     ],
     bootstrap: [AppComponent]

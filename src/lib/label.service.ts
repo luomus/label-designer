@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ILabelField, ILabelStyle, ILabelValueMap, ISetup } from './label-designer.interface';
+import { FieldType, ILabelField, ILabelItem, ILabelStyle, ILabelValueMap, ISetup } from './label-designer.interface';
 
 export interface IPageLayout {
   cols: number;
@@ -61,6 +61,20 @@ export class LabelService {
       id,
       domain: uriParts.join('/') + '/'
     };
+  }
+
+  public static forEachLabelItem(setup: ISetup, cb: (field: ILabelItem) => void) {
+    ['labelItems', 'backSideLabelItems'].forEach(items => {
+      if (setup[items]) {
+        setup[items].map((item: ILabelItem) => cb(item));
+      }
+    });
+  }
+
+  public static forEachField(setup: ISetup, cb: (field: ILabelField) => void) {
+    LabelService.forEachLabelItem(setup, (item) => {
+      item.fields.forEach(field => cb(field));
+    });
   }
 
   private static _getValue(value: any, map?: {[values: string]: string}, join?: string): string|string[] {

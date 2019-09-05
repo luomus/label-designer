@@ -76,7 +76,6 @@ export class LabelEditorComponent {
       [items]: result
     };
     this.setupChange.emit(this._setup);
-    console.log('MARKING AS HAVING CHANGES');
     this.labelMakerFacade.hasChanges(true);
   }
 
