@@ -25,6 +25,6 @@ labels.
 
 # Download
 
-* [linux](https://cdn.laji.fi/label-designer/label-designer-linux-x86.tar.gz)
-* [mac](https://cdn.laji.fi/label-designer/label-designer-darwin-x86.zip)
+* [linux](https://cdn.laji.fi/label-designer/label-designer-linux-x64.tar.gz)
+* [mac](https://cdn.laji.fi/label-designer/label-designer-darwin-x64.zip)
 * [windows](https://cdn.laji.fi/label-designer/label-designer-windows.zip)
