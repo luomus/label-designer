@@ -40,7 +40,8 @@
       <td>
         <select style="width: 100%" class="form-control input-sm" (change)="change('font-family', $event.target.value)">
           <option value="" *ngIf="allowEmptyFontFamily"></option>
-          <option *ngFor="let family of fontFamily" [value]="family" [selected]="fontSettings && family === fontSettings['font-family']">{{family}}</option>
+          <option *ngIf="fontSettings && fontSettings['font-family'] && fontFamily.indexOf(fontSettings['font-family']) === -1" [value]="fontSettings['font-family']" [selected]="true">{{ fontSettings['font-family'] }}</option>
+          <option *ngFor="let family of fontFamily" [value]="family" [selected]="fontSettings && family === fontSettings['font-family']">{{ family }}</option>
         </select>
       </td>
     </tr>

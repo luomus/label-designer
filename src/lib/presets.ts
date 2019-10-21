@@ -2,6 +2,8 @@ import { IPageStyle } from './label-designer.interface';
 
 export class Presets {
 
+  public static DefaultFont = 'Open Sans';
+
   public static Border = {
     dashed: 'thin dashed #999',
     none: 'none',

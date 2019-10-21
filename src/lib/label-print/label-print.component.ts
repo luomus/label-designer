@@ -12,10 +12,13 @@ import {
 import { ISetup, QRCodeErrorCorrectionLevel } from '../label-designer.interface';
 import { IPageLayout, LabelService } from '../label.service';
 
+/* tslint:disable:max-line-length */
 /**
  * @ignore
  */
 const style = `
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Merriweather|Noto+Serif|Old+Standard+TT|Open+Sans|Open+Sans+Condensed|Source+Code+Pro:300&display=swap');
+
 .ll-print-content {
   display: grid;
   grid-gap: 0;
@@ -37,6 +40,7 @@ const style = `
   border: 1px solid #333;
 }
 `;
+/* tslint:enable:max-line-length */
 
 /**
  * Convert the label setup together with data to html that can be used for printing.
@@ -164,7 +168,10 @@ export class LabelPrintComponent implements OnChanges {
     if (this.nroPages <= 0) {
       const html = `<!DOCTYPE html>
 <html>
-  <head><meta charset="utf-8"><title>Labels</title><style>${style}</style></head>
+  <head>
+    <meta charset="utf-8"><title>Labels</title><style>${style}</style>
+    <script type="application/javascript">await document.fonts.ready;</script>
+  </head>
   <body style="margin: 0; padding: 0;">${this.pageContainer.nativeElement.innerHTML}</body>
 </html>`;
       this.printing = this.visible;

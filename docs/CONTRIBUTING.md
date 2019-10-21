@@ -24,5 +24,5 @@ username, and links to relevant issue(s)/PR(s).
 ### Code of Conduct
 
 Please note that this project is released with a
-[Contributor Code of Conduct][contributor-code-of-conduct.html]. By contributing to this
+[Contributor Code of Conduct](contributor-code-of-conduct.html). By contributing to this
 project you agree to abide by its terms.

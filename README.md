@@ -8,7 +8,7 @@ it from being used for other kinds of labels also.
 ![editor](https://cdn.laji.fi/label-designer/screenshots/editor.png)
 
 ## Demo
-Running demo can be found [here](https://label-designer.stackblitz.io).
+Running demo can be found [here](https://stackblitz.com/edit/label-designer).
 
 ## Getting started
 There are few ways you can use this library.

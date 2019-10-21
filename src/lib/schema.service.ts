@@ -69,7 +69,7 @@ export class SchemaService {
     parent = '',
     lvl = 0
   ): ILabelData|ILabelData[] {
-    if (typeof data !== 'object') {
+    if (typeof data !== 'object' || data === null) {
       return base;
     }
     const arrays = [];
@@ -98,13 +98,13 @@ export class SchemaService {
     }
 
     arrays.forEach(key => {
-      this.convertData(data[key][0], fields, select, result, base, this.getPath(parent, key), lvl + 1);
+      const path = this.getPath(parent, key);
+      data[key].forEach(item => this.convertData(item, fields, select, result, base, path, lvl + 1));
     });
 
     selected.forEach(key => {
-      data[key].forEach(item => {
-        result.push(this.convertData(item, fields, select, result, {...base}, this.getPath(parent, key), lvl + 1));
-      });
+      const path = this.getPath(parent, key);
+      data[key].forEach(item => result.push(this.convertData(item, fields, select, result, {...base}, path, lvl + 1)));
     });
 
     if (lvl === 0) {
@@ -115,6 +115,9 @@ export class SchemaService {
   }
 
   private convertSchema(path: string, parentLabel: string, schema: any, base: ILabelField[], options?: ISchemaOptions) {
+    if (typeof schema !== 'object' || schema === null) {
+      return base;
+    }
     switch (schema.type) {
       case 'object':
         if (schema.properties) {
@@ -152,14 +155,22 @@ export class SchemaService {
   }
 
   private getValueMap(item): undefined|{[value: string]: string} {
-    if (!Array.isArray(item.enum) || !Array.isArray(item.enumNames)) {
-      return undefined;
+    function pick(from) {
+      const result = {};
+      for (let i = 0; i < from.enum.length; i++) {
+        result[from.enum[i]] = from.enumNames[i];
+      }
+      return result;
     }
-    const result = {};
-    for (let i = 0; i < item.enum.length; i++) {
-      result[item.enum[i]] = item.enumNames[i];
+
+    if (Array.isArray(item.enum) && Array.isArray(item.enumNames)) {
+      return pick(item);
     }
-    return result;
+    if (item.items && Array.isArray(item.items.enum) && Array.isArray(item.items.enumNames)) {
+      return pick(item.items);
+    }
+
+    return undefined;
   }
 
 }

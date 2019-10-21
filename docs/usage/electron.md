@@ -1,6 +1,6 @@
 # Standalone app
 
-You can fetch standalone version of this app from [...]. We're using [js-xlsx](https://github.com/protobi/js-xlsx/tree/beta)
+You can fetch standalone version of this app from link bellow. We're using [js-xlsx](https://github.com/protobi/js-xlsx/tree/beta)
 to read the files so any format supported by that library is also supported by this library.
   
 To be able to provide the standalone version for different operating systems
@@ -22,3 +22,9 @@ First prepare spreadsheet with the data you want to label. It can have data some
 3. Now that the data is imported you can design the label or load any of you previously saved
 labels. 
 4. Available fields are automatically generated based on the first row in the file loaded.
+
+# Download
+
+* [linux](https://cdn.laji.fi/label-designer/label-designer-linux-x86.tar.gz)
+* [mac](https://cdn.laji.fi/label-designer/label-designer-darwin-x86.zip)
+* [windows](https://cdn.laji.fi/label-designer/label-designer-windows.zip)

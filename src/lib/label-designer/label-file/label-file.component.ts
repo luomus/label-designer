@@ -8,6 +8,7 @@ import * as JSZip from 'jszip';
 import { TranslateService } from '../../translate/translate.service';
 import { LabelMakerFacade } from '../label-maker.facade';
 import { take } from 'rxjs/operators';
+import { LabelDesignerHelper } from '../../label-designer.helper';
 
 export interface ILoadSetup {
   setup: ISetup;
@@ -80,6 +81,7 @@ export class LabelFileComponent {
           evt.target.value = '';
           const data = JSON.parse(jsonString);
           if (data && data.setup) {
+            LabelDesignerHelper.mergeFieldsToSetup(this.defaultAvailableFields, data.setup);
             this.setupChange.emit(data.setup);
             this.updateResentFiles({setup: data.setup, availableFields: data.fields}, this.filename);
             if (data.fields && Array.isArray(data.fields)) {
@@ -192,6 +194,7 @@ export class LabelFileComponent {
         if (hasChanges && !confirm(this.translateService.get('Do you want to discard the local changes?'))) {
           return;
         }
+        LabelDesignerHelper.mergeFieldsToSetup(this.defaultAvailableFields, recent.setup);
         this.setupChange.emit(recent.setup);
         if (recent.availableFields) {
           this.availableFieldsChange.emit(recent.availableFields);
