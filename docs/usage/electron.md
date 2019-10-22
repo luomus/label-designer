@@ -1,6 +1,7 @@
 # Standalone app
 
-You can fetch standalone version of this app from link bellow. We're using [js-xlsx](https://github.com/protobi/js-xlsx/tree/beta)
+You can fetch standalone version of this app from link bellow.
+We're using [js-xlsx](https://github.com/protobi/js-xlsx/tree/beta)
 to read the files so any format supported by that library is also supported by this library.
   
 To be able to provide the standalone version for different operating systems

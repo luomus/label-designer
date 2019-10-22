@@ -23,5 +23,6 @@
     }
   ],
   "includes": "docs",
+  "templates": "docs/templates",
   "tsconfig": "./tsconfig.lib.json"
 }
