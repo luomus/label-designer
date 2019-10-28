@@ -1,0 +1,1371 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Label Designer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+<a href="https://bitbucket.org/luomus/laji.fi-front/src/development/projects/label-designer/" style="position:absolute;z-index:10000;top:0;right:0;">
+    <img src="https://bitbucket.org/zgramana/bitbucket-ribbons/raw/243f0fd6e03b47368f53ccf1bd29a59f5cc11b74/png/bitbucket-ribbon-black.png" height="100" />
+</a>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+    <a href="../" class="navbar-brand">Label Designer</a>
+    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+    <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>    <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+    <div class="row main">
+        <div class="hidden-xs menu">
+            <compodoc-menu mode="normal"></compodoc-menu>
+        </div>
+        <!-- START CONTENT -->
+        <div class="content component">
+            <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LabelDesignerComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/lib/label-designer/label-designer.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Label designer window that can be used to load, edit, show preview and send the html from the labels to the host component.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ll-label-designer</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./label-designer.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./label-designer.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clearData">clearData</a>
+                            </li>
+                            <li>
+                                <a href="#openGenerate">openGenerate</a>
+                            </li>
+                            <li>
+                                <a href="#openGettingStarted">openGettingStarted</a>
+                            </li>
+                            <li>
+                                <a href="#openImportExcel">openImportExcel</a>
+                            </li>
+                            <li>
+                                <a href="#openIntro">openIntro</a>
+                            </li>
+                            <li>
+                                <a href="#redo">redo</a>
+                            </li>
+                            <li>
+                                <a href="#setPreviewActive">setPreviewActive</a>
+                            </li>
+                            <li>
+                                <a href="#undo">undo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#availableFields">availableFields</a>
+                            </li>
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#defaultAvailableFields">defaultAvailableFields</a>
+                            </li>
+                            <li>
+                                <a href="#defaultDomain">defaultDomain</a>
+                            </li>
+                            <li>
+                                <a href="#defaultSetup">defaultSetup</a>
+                            </li>
+                            <li>
+                                <a href="#fileColumnMap">fileColumnMap</a>
+                            </li>
+                            <li>
+                                <a href="#pdfLoading">pdfLoading</a>
+                            </li>
+                            <li>
+                                <a href="#presets">presets</a>
+                            </li>
+                            <li>
+                                <a href="#qrCodeErrorCorrectionLevel">qrCodeErrorCorrectionLevel</a>
+                            </li>
+                            <li>
+                                <a href="#setup">setup</a>
+                            </li>
+                            <li>
+                                <a href="#showIntro">showIntro</a>
+                            </li>
+                            <li>
+                                <a href="#translations">translations</a>
+                            </li>
+                            <li>
+                                <a href="#viewSettings">viewSettings</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#availableFieldsChange">availableFieldsChange</a>
+                            </li>
+                            <li>
+                                <a href="#dataChange">dataChange</a>
+                            </li>
+                            <li>
+                                <a href="#fileColumnMapChange">fileColumnMapChange</a>
+                            </li>
+                            <li>
+                                <a href="#html">html</a>
+                            </li>
+                            <li>
+                                <a href="#introClosed">introClosed</a>
+                            </li>
+                            <li>
+                                <a href="#pdfLoadingChange">pdfLoadingChange</a>
+                            </li>
+                            <li>
+                                <a href="#setupChange">setupChange</a>
+                            </li>
+                            <li>
+                                <a href="#viewSettingsChange">viewSettingsChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#translations">translations</a>
+                                </li>
+                                <li>
+                                    <a href="#data">data</a>
+                                </li>
+                                <li>
+                                    <a href="#viewSettings">viewSettings</a>
+                                </li>
+                                <li>
+                                    <a href="#setup">setup</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="availableFields"></a>
+                        <b>availableFields</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ILabelField.html" target="_self" >ILabelField[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>These are all the available fields that the user can add the label.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Array of data objects. Each object in the array will generate one label.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultAvailableFields"></a>
+                        <b>defaultAvailableFields</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ILabelField.html" target="_self" >ILabelField[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>These are the default label fields. If the user import an excel file available fields changes and if that list is different from this
+there will be a reset button visible on label fields tab.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultDomain"></a>
+                        <b>defaultDomain</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Default domain that is used on generate data dialog.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultSetup"></a>
+                        <b>defaultSetup</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ISetup.html" target="_self" >ISetup</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Setup that is used when the user clicks new from the file menu.
+This is optional input and if this is missing there will not be new button visible.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileColumnMap"></a>
+                        <b>fileColumnMap</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IColumnMap.html" target="_self" >IColumnMap</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Map spreadsheet columns to where fields</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pdfLoading"></a>
+                        <b>pdfLoading</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Since the loading of the pdf is done externally this will tell the editor to display loading indicator on the download the pdf link.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="presets"></a>
+                        <b>presets</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/PresetSetup.html" target="_self" >PresetSetup[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Preset setups that the user can pick from the file menu.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="qrCodeErrorCorrectionLevel"></a>
+                        <b>qrCodeErrorCorrectionLevel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#QRCodeErrorCorrectionLevel" target="_self" >QRCodeErrorCorrectionLevel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>QRCodeErrorCorrectionLevel.levelM</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Error correction level used on the QR Code.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setup"></a>
+                        <b>setup</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Setup for the whole page see <a href="../interfaces/ISetup.html">ISetup</a></p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showIntro"></a>
+                        <b>showIntro</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether or not show the intro on startup.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="translations"></a>
+                        <b>translations</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Translations for the component. See <a href="../interfaces/LabelDesignerTranslationsInterface.html">LabelDesignerTranslationsInterface</a> to see what values can be translated.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewSettings"></a>
+                        <b>viewSettings</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>View settings to use. See <a href="../interfaces/IViewSettings.html">IViewSettings</a> for details on what can be set.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="availableFieldsChange"></a>
+                        <b>availableFieldsChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ILabelField.html" target="_self" >EventEmitter&lt;ILabelField[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Triggered when available fields are changed.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataChange"></a>
+                        <b>dataChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;object[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Triggered when the data is changed. This can occurs when the excel is imported or when the data is generated using the generate dialog.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileColumnMapChange"></a>
+                        <b>fileColumnMapChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IColumnMap.html" target="_self" >EventEmitter&lt;IColumnMap&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Triggered when spreadsheet columns mapping changes</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="html"></a>
+                        <b>html</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ILabelPdf.html" target="_self" >EventEmitter&lt;ILabelPdf&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Event that triggers when the html for the label is generated. Event holds the desired filename and the html string
+(See <a href="../interfaces/ILabelPdf.html">ILabelPdf</a>).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="introClosed"></a>
+                        <b>introClosed</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;void&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Triggered when the intro dialog is closed.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pdfLoadingChange"></a>
+                        <b>pdfLoadingChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Triggered when pdf loading is changed</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setupChange"></a>
+                        <b>setupChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ISetup.html" target="_self" >EventEmitter&lt;ISetup&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Triggered when setup changes. This happens on every change on the label, so make sure that performance of the chain of the event&#39;s
+that this triggers is good and that it doesn&#39;t block the ui thread.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewSettingsChange"></a>
+                        <b>viewSettingsChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IViewSettings.html" target="_self" >EventEmitter&lt;IViewSettings&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Triggered when view settings change.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearData"></a>
+                    <span class="name">
+                        <b>
+                            clearData
+                        </b>
+                        <a href="#clearData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearData()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openGenerate"></a>
+                    <span class="name">
+                        <b>
+                            openGenerate
+                        </b>
+                        <a href="#openGenerate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openGenerate()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Open generate dialog</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openGettingStarted"></a>
+                    <span class="name">
+                        <b>
+                            openGettingStarted
+                        </b>
+                        <a href="#openGettingStarted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openGettingStarted()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Open getting started dialog</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openImportExcel"></a>
+                    <span class="name">
+                        <b>
+                            openImportExcel
+                        </b>
+                        <a href="#openImportExcel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openImportExcel()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Open excel import dialog</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openIntro"></a>
+                    <span class="name">
+                        <b>
+                            openIntro
+                        </b>
+                        <a href="#openIntro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openIntro()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Open intro dialog</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redo"></a>
+                    <span class="name">
+                        <b>
+                            redo
+                        </b>
+                        <a href="#redo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>redo()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Redo the changes if there are anything to redo</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPreviewActive"></a>
+                    <span class="name">
+                        <b>
+                            setPreviewActive
+                        </b>
+                        <a href="#setPreviewActive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setPreviewActive(idx: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Preview the specific item on the data array.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idx</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="undo"></a>
+                    <span class="name">
+                        <b>
+                            undo
+                        </b>
+                        <a href="#undo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>undo()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Undo the changes if there are anything to undo</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="translations"></a>
+                        <span class="name"><b>translations</b><a href="#translations"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>translations(translations)</code></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Translations for the component. See <a href="../interfaces/LabelDesignerTranslationsInterface.html">LabelDesignerTranslationsInterface</a> to see what values can be translated.</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>translations</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name"><b>data</b><a href="#data"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>data()</code></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>data(data: [])</code></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Array of data objects. Each object in the array will generate one label.</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>data</td>
+                                                    
+                                                            <td>
+                                                                        <code>[]</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewSettings"></a>
+                        <span class="name"><b>viewSettings</b><a href="#viewSettings"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>viewSettings()</code></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>viewSettings(settings)</code></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>View settings to use. See <a href="../interfaces/IViewSettings.html">IViewSettings</a> for details on what can be set.</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>settings</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setup"></a>
+                        <span class="name"><b>setup</b><a href="#setup"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>setup()</code></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>setup(setup)</code></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Setup for the whole page see <a href="../interfaces/ISetup.html">ISetup</a></p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>setup</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+
+
+
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="label-editor-window" #editor *ngIf="_setup; else missingSetup">  <div class="menubar">    <ul>      <li [class.active]="_active === \'file\'" (click)="_active = \'file\'"><a>{{ \'File\' | translate }}</a></li>      <li [class.active]="_active === \'edit\'" (click)="_active = \'edit\'"><a>{{ \'Edit\' | translate }}</a></li>      <li [class.active]="_active === \'view\'" (click)="_active = \'view\'" *ngIf="_viewSettings"><a>{{ \'View\' | translate }}</a></li>      <li [class.active]="_active === \'fields\'" (click)="_active = \'fields\'"><a>{{ \'Label fields\' | translate }}</a></li>      <li [class.active]="_active === \'settings\'" (click)="_active = \'settings\'"><a>{{ \'Settings\' | translate }}</a></li>      <li [class.active]="_active === \'map\'" (click)="_active = \'map\'"><a>{{ \'Map values\' | translate }}</a></li>      <li [class.active]="_active === \'help\'" (click)="_active = \'help\'"><a>{{ \'Help\' | translate }}</a></li>      <li class="info">{{ filename$ | async }}</li>    </ul>    <div class="clear"></div>  </div>  <div class="window-content">    <div class="settings-wrap main" [class.dragging]="dragging" #settings *ngIf="_active !== \'close\'">      <div (click)="_active = \'close\'" class="close-settings">        {{ \'Close menu\' | translate }}        <div style="float: right">          <ll-icon [type]="\'close\'"></ll-icon>        </div>      </div>      <div *ngIf="_active === \'view\'">        <ll-view-settings [viewSettings]="_viewSettings" (viewSettingsChange)="onViewSettingsChange($event)"></ll-view-settings>      </div>      <div *ngIf="_active === \'help\'">        <table class="icon">          <!--          <tr class="link" (click)="openGettingStarted()">            <td></td>            <td>{{ \'Getting started\' | translate }}</td>          </tr>          -->          <tr class="link" (click)="openIntro()">            <td>              <ll-icon [size]="14" [type]="\'logo\'"></ll-icon>            </td>            <td>{{ \'About\' | translate }}</td>          </tr>        </table>      </div>      <div *ngIf="_active === \'file\'">        <ll-label-file          [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel"          [presets]="presets"          [availableFields]="availableFields"          (availableFieldsChange)="availableFieldsChange.emit($event)"          [defaultAvailableFields]="defaultAvailableFields"          (dataChange)="data = $event"          [newSetup]="defaultSetup"          [setup]="_setup"          [pdfLoading]="pdfLoading"          (pdfLoadingChange)="onPdfLoading($event)"          (setupChange)="setupChanged($event)"          [data]="data"          (html)="html.emit($event)"        ></ll-label-file>        <h3>{{ \'Data\' | translate }}</h3>        <table class="icon">          <tr class="link" [class.disabled]="!data || data.length === 0" (click)="clearData()">            <td></td>            <td>{{ \'Clear\' | translate }}</td>          </tr>          <tr class="link" (click)="openGenerate()">            <td></td>            <td>{{ \'Generate\' | translate }}...</td>          </tr>          <tr class="link" (click)="openImportExcel()"><td></td><td>{{ \'Import from file\' | translate }}...</td></tr>        </table>        <ng-content select=".file-data"></ng-content>      </div>      <div [hidden]="_active !== \'edit\'">        <table class="icon">          <tr class="link" [class.disabled]="!hasUndo()" (click)="undo()">            <td>              <ll-icon [size]="14" [type]="\'undo\'"></ll-icon>            </td>            <td>{{ \'Undo\' | translate }}</td>          </tr>          <tr class="link" [class.disabled]="!hasRedo()" (click)="redo()">            <td>              <ll-icon [size]="14" [type]="\'redo\'"></ll-icon>            </td>            <td>{{ \'Redo\' | translate }}</td>          </tr>        </table>      </div>      <div [hidden]="_active !== \'settings\'">        <ll-label-settings          [setup]="_setup"          (setupChange)="setupChanged($event)"          [selectedLabelItem]="_selectedLabelItem"          [availableFields]="availableFields"        ></ll-label-settings>      </div>      <div [hidden]="_active !== \'fields\'">        <ll-label-fields-available          (dragging)="newFieldDragging($event, settings)"          [setup]="_setup"          [magnification]="_viewSettings.magnification"          [availableFields]="availableFields"          (availableFieldsChange)="availableFieldsChange.emit($event)"          [defaultAvailableFields]="defaultAvailableFields"          (addLabelItem)="addLabelItem($event)"        ></ll-label-fields-available>      </div>      <div *ngIf="_active === \'map\'">        <ll-label-value-map          [data]="_data"          [valueMap]="_setup.valueMap || {}"          (valueMapChange)="onValueMapChange($event)"          [availableFields]="availableFields"        ></ll-label-value-map>      </div>    </div>    <div class="editor-wrap">      <div class="editor-space">        <ll-label-editor          [active]="_selectedLabelItem"          (activeChange)="setActiveLabelItem($event)"          (done)="done()"          [setup]="_setup"          (setupChange)="setupChanged($event)"          [grid]="_viewSettings.grid"          [gridVisible]="_viewSettings.gridVisible"          [magnification]="_viewSettings.magnification"          (showSettings)="showSettings($event)"></ll-label-editor>        <div *ngIf="_setup.twoSided" style="margin-top: 10px; display: inline-block;">          <ll-label-editor            [backSide]="true"            [active]="_selectedLabelItem"            (activeChange)="setActiveLabelItem($event)"            (done)="done()"            [setup]="_setup"            (setupChange)="setupChanged($event)"            [grid]="_viewSettings.grid"            [gridVisible]="_viewSettings.gridVisible"            [magnification]="_viewSettings.magnification"            (showSettings)="showSettings($event)"></ll-label-editor>        </div>      </div>      <div class="preview-space">        <strong>{{ \'Preview\' | translate }}</strong>        <ll-label-preview-pager [active]="previewActive" (activeChange)="setPreviewActive($event)" [data]="data"></ll-label-preview-pager>        <small *ngIf="dimensions">          {{ \'Labels on page\' | translate:{total: dimensions.cols * dimensions.rows, cols: dimensions.cols, rows: dimensions.rows} }}        </small>        <br>        <div class="preview-elements" [ngStyle]="{            \'transform\': \'scale(\' + (_viewSettings.previewMagnification || 1) + \')\'          }">          <div style="margin: 5px 15px 0 0; border: 1px solid #999; display: inline-block">            <ll-label-preview [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel" [setup]="_setup" [data]="_data[previewActive]"></ll-label-preview>          </div>          <div *ngIf="_setup.twoSided" style="margin-top: 5px; border: 1px solid #999; display: inline-block">            <ll-label-preview [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel" [setup]="_setup" [data]="_data[previewActive]"                              [backside]="true"></ll-label-preview>          </div>        </div>      </div>    </div>  </div>  <ll-info-window></ll-info-window></div><ng-template #intro>  <div style="text-align: center; margin: 0 0 20px 0">    <ll-icon [type]="\'logo\'" [size]="72"></ll-icon>    <div style="margin-top: -5px">      <small>{{ \'Version\' | translate }} {{ version }}</small>    </div>  </div>  <div [innerHtml]="\'Label intro\' | translate"></div></ng-template><ng-template #gettingStarted>  <p>    Video  </p></ng-template><ng-template #missingSetup>  {{ \'Missing required setup parameter\' | translate }}</ng-template><ng-template #generateTpl>  <table class="generate user-input">    <tr><td>{{ \'Uri\' | translate }}:</td><td><input (change)="updateGenerate(\'uri\', $event.target.value)" [value]="generate.uri" type="text" class="form-control input-sm"></td></tr>    <tr><td>{{ \'Range start\' | translate }}:</td><td><input (change)="updateGenerate(\'rangeStart\', $event.target.value)" [value]="generate.rangeStart || \'\'" type="text" [class.error]="!(generate.rangeStart | isNumeric)" class="form-control input-sm"></td></tr>    <tr><td>{{ \'Range end\' | translate }}:</td><td><input (change)="updateGenerate(\'rangeEnd\', $event.target.value)" [value]="generate.rangeEnd || \'\'" type="text" [class.error]="!(generate.rangeEnd | isNumeric)" class="form-control input-sm"></td></tr>    <tr *ngIf="generateFields.length > 0"><td colspan="2">&nbsp;</td></tr>    <tr *ngFor="let field of generateFields;">      <td>{{ field.label }}:</td><td><input [value]="generate.data[(field | fieldKey)] || \'\'" (change)="updateGenerate(field, $event.target.value, true)" type="text" class="form-control input-sm"></td>    </tr>  </table></ng-template><ng-template #generateActionsTpl>  <button (click)="generateData()" class="btn btn-default btn-sm pull-right">{{ \'Generate\' | translate }}</button></ng-template><ng-template #excelTpl>  <ll-label-excel-file #excelFile                       [defaultDomain]="defaultDomain"                       [availableFields]="availableFields"                       [columnMap]="fileColumnMap"                       (columnMapChange)="fileColumnMapChange.emit($event)"  ></ll-label-excel-file></ng-template><ng-template #excelActionsTpl>  <button (click)="loadExcelData()" class="btn btn-default btn-sm pull-right">{{ \'Load\' | translate }}</button></ng-template></div>'
+    var COMPONENTS = [{'name': 'LabelDesignerComponent', 'selector': 'll-label-designer'},{'name': 'LabelPreviewComponent', 'selector': 'll-label-preview'},{'name': 'LabelPrintComponent', 'selector': 'll-label-print'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LabelDesignerComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+        <!-- END CONTENT -->
+    </div>
+</div>
+
+<script>
+    var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+    var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+      var COMPODOC_CURRENT_PAGE_URL = 'LabelDesignerComponent.html';
+</script>
+
+<script src="../js/libs/custom-elements.min.js"></script>
+<script src="../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+<script src="../js/menu-wc.js" defer></script>
+
+<script src="../js/libs/bootstrap-native.js"></script>
+
+<script src="../js/libs/es6-shim.min.js"></script>
+<script src="../js/libs/EventDispatcher.js"></script>
+<script src="../js/libs/promise.min.js"></script>
+<script src="../js/libs/zepto.min.js"></script>
+
+<script src="../js/compodoc.js"></script>
+
+<script src="../js/tabs.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/libs/clipboard.min.js"></script>
+<script src="../js/libs/prism.js"></script>
+<script src="../js/sourceCode.js"></script>
+    <script src="../js/search/search.js"></script>
+    <script src="../js/search/lunr.min.js"></script>
+    <script src="../js/search/search-lunr.js"></script>
+    <script src="../js/search/search_index.js"></script>
+<script src="../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>

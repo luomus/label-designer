@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Label Designer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+<body>
+
+<a href="https://bitbucket.org/luomus/laji.fi-front/src/development/projects/label-designer/" style="position:absolute;z-index:10000;top:0;right:0;">
+    <img src="https://bitbucket.org/zgramana/bitbucket-ribbons/raw/243f0fd6e03b47368f53ccf1bd29a59f5cc11b74/png/bitbucket-ribbon-black.png" height="100" />
+</a>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+    <a href="../../" class="navbar-brand">Label Designer</a>
+    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+    <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>    <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+    <div class="row main">
+        <div class="hidden-xs menu">
+            <compodoc-menu mode="normal"></compodoc-menu>
+        </div>
+        <!-- START CONTENT -->
+        <div class="content additional-page">
+            <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="custom-element">Custom element</h1>
+<h3 id="pre-requests">Pre-requests</h3>
+<ol>
+<li><a href="https://caniuse.com/#feat=custom-elementsv1">Custom html elements</a> is quite new feature
+so make sure that it meets your needs before choosing this usage option. Some of the missing 
+features can be added with polyfills, but the library itself will not include these.</li>
+<li>Include the library where you want to use it. You can either install this from npm or copy it
+from FinBIF cdn to your server. Address is <code>https://cdn.laji.fi/label-designer/&lt;version&gt;/editor.js</code>.<ul>
+<li>Please copy it to your own server instead of referring it directly on cdn.laji.fi
+(not all versions are available there and when new version is release older versions are removed there periodically).</li>
+</ul>
+</li>
+<li>Use tag on the page you like<div><pre class="line-numbers"><code class="language-html">&lt;label-designer&gt;&lt;/label-designer&gt;</code></pre></div></li>
+</ol>
+<h3 id="using-the-custom-element">Using the custom element</h3>
+<p>To get access to the element you can use the following snippet</p>
+<div><pre class="line-numbers"><code class="language-javascript">var labelDesigner = document.querySelector(&#39;label-designer&#39;);
+
+// To access inputs you can access properties directly
+labelDesigner.availableFields = [...];
+
+// To access outputs you need to addEventListeners to corresponding events
+labelDesigner.addEventListener(&#39;html&#39;, function(event) {
+   // event.detail will hold the emitted value.
+   // This event is returning object with html and filename properties so you can access them like this:
+   var html = event.detail.html;
+   var filename = event.detail.filename;
+});</code></pre></div><p>Source code for the custom element is available <a href="https://bitbucket.org/luomus/laji.fi-front/src/development/projects/label-designer-element/">here</a></p>
+
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+        <!-- END CONTENT -->
+    </div>
+</div>
+
+<script>
+    var COMPODOC_CURRENT_PAGE_DEPTH = 2;
+    var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+      var COMPODOC_CURRENT_PAGE_URL = 'custom-html-element.html';
+</script>
+
+<script src="../../js/libs/custom-elements.min.js"></script>
+<script src="../../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script src="../../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+<script src="../../js/menu-wc.js" defer></script>
+
+<script src="../../js/libs/bootstrap-native.js"></script>
+
+<script src="../../js/libs/es6-shim.min.js"></script>
+<script src="../../js/libs/EventDispatcher.js"></script>
+<script src="../../js/libs/promise.min.js"></script>
+<script src="../../js/libs/zepto.min.js"></script>
+
+<script src="../../js/compodoc.js"></script>
+
+<script src="../../js/tabs.js"></script>
+<script src="../../js/menu.js"></script>
+<script src="../../js/libs/clipboard.min.js"></script>
+<script src="../../js/libs/prism.js"></script>
+<script src="../../js/sourceCode.js"></script>
+    <script src="../../js/search/search.js"></script>
+    <script src="../../js/search/lunr.min.js"></script>
+    <script src="../../js/search/search-lunr.js"></script>
+    <script src="../../js/search/search_index.js"></script>
+<script src="../../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>

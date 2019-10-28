@@ -1,0 +1,225 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Label Designer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+<body>
+
+<a href="https://bitbucket.org/luomus/laji.fi-front/src/development/projects/label-designer/" style="position:absolute;z-index:10000;top:0;right:0;">
+    <img src="https://bitbucket.org/zgramana/bitbucket-ribbons/raw/243f0fd6e03b47368f53ccf1bd29a59f5cc11b74/png/bitbucket-ribbon-black.png" height="100" />
+</a>
+
+<div class="navbar navbar-default navbar-fixed-top visible-xs">
+    <a href="../../" class="navbar-brand">Label Designer</a>
+    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+</div>
+
+<div class="xs-menu menu" id="mobile-menu">
+    <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>    <compodoc-menu></compodoc-menu>
+</div>
+
+<div class="container-fluid main">
+    <div class="row main">
+        <div class="hidden-xs menu">
+            <compodoc-menu mode="normal"></compodoc-menu>
+        </div>
+        <!-- START CONTENT -->
+        <div class="content additional-page">
+            <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="using-as-angular-module">Using as Angular module</h1>
+<p>To start using this library do the following steps: </p>
+<ol>
+<li>Make sure that you all the <a href="../dependencies.html">dependencies</a> installed.</li>
+<li>Import the <code>LabelDesignerModule</code> from <code>label-designer</code> package in the module 
+where you want to use it.<div><pre class="line-numbers"><code class="language-none">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
+import { NgModule } from &#39;&#64;angular/core&#39;;
+import { NgxWebstorageModule } from &#39;ngx-webstorage&#39;;
+import { LabelDesignerModule } from &#39;label-designer&#39;;
+&#64;NgModule({
+ imports: [
+     BrowserModule,
+     NgxWebstorageModule.forRoot({prefix: &#39;LD-&#39;, separator: &#39;&#39;}),
+     LabelDesignerModule
+ ],
+ bootstrap: [AppComponent]
+})
+export class AppModule { }</code></pre></div></li>
+<li>Use the <code>ll-label-designer</code> tag where ever needed.<div><pre class="line-numbers"><code class="language-none">&lt;ll-label-designer
+   (html)=&quot;onHtml($event)&quot;
+   [data]=&quot;data&quot;
+   [(availableFields)]=&quot;availableFields&quot;
+   [(setup)]=&quot;setup&quot;
+&gt;&lt;/ll-label-designer&gt;</code></pre></div></li>
+</ol>
+<p>You&#39;re required to give setup object but everything else is optional, all though giving available
+fields is highly recommended. Basic setup should something like this:</p>
+<div><pre class="line-numbers"><code class="language-json">{
+  &quot;page&quot;: {
+    // Basic presets class is provided by the Label Designer and you can use that to include
+    // different page sizes and known border styles 
+    &quot;height.mm&quot;: 297,
+    &quot;width.mm&quot;: 210,
+    &quot;paddingTop.mm&quot;: 10,
+    &quot;paddingLeft.mm&quot;: 10,
+    &quot;paddingBottom.mm&quot;: 10,
+    &quot;paddingRight.mm&quot;: 10
+  },
+  &quot;label&quot;: {
+    &quot;height.mm&quot;: 20,
+    &quot;width.mm&quot;: 50,
+    &quot;marginTop.mm&quot;: 1.5,
+    &quot;marginLeft.mm&quot;: 1.5,
+    &quot;marginBottom.mm&quot;: 1.5,
+    &quot;marginRight.mm&quot;: 1.5,
+    &quot;font-family&quot;: &quot;Arial&quot;,
+    &quot;font-size.pt&quot;: 9
+  },
+  &quot;labelItems&quot;: [
+    {
+      &quot;type&quot;: &quot;field&quot;,
+      &quot;style&quot;: {
+        &quot;width.mm&quot;: 13,
+        &quot;height.mm&quot;: 13,
+      },
+      &quot;x&quot;: 0, // x position im mm
+      &quot;y&quot;: 0, // y position im mm
+      &quot;fields&quot;: [
+        {
+          &quot;field&quot;: &quot;uri&quot;,                     // value for this is picked from the data with this key.
+          &quot;content&quot;: &quot;http://example.com/ID&quot;, // This is displayed in the preview (with qr-code type QR Code is displayed instead)
+          &quot;label&quot;: &quot;URI - QRCode&quot;,            // This label that is visible on the editor.
+          &quot;type&quot;: FieldType.qrCode            // This is optional and editor will enable special features based on this.
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;field&quot;,
+      &quot;style&quot;: {
+        &quot;width.mm&quot;: 35,
+        &quot;height.mm&quot;: 5,
+      },
+      &quot;x&quot;: 15,
+      &quot;y&quot;: 0,
+      &quot;fields&quot;: [
+        {&quot;field&quot;: &quot;uri&quot;, &quot;content&quot;: &quot;http://example.com/ID&quot;, &quot;label&quot;: &quot;URI&quot;, &quot;type&quot;:  FieldType.uri},
+        {&quot;field&quot;: &quot;species&quot;, &quot;content&quot;: &quot;Parus major&quot;, &quot;label&quot;: &quot;Species&quot;}
+      ]
+    }
+  ]
+}</code></pre></div><p>If you&#39;re using <a href="http://json-schema.org/">json schema spec</a> you can use provided
+<a href="../../injectables/SchemaService.html">SchemaService</a> to 
+extract available fields data for you. Please note that all the features of json schema are not supported.
+Basic availableFields looks something like this:</p>
+<div><pre class="line-numbers"><code class="language-json">[
+  {
+    &quot;field&quot;: &quot;uri&quot;,                     // Values is picked from this key on the data
+    &quot;content&quot;: &quot;http://example.com/ID&quot;, 
+    &quot;label&quot;: &quot;URI - QRCode&quot;,           
+    &quot;type&quot;: &quot;qr-code&quot;                   // Tells the Label Designer to convert this field value to QR Code
+  },
+  {
+    &quot;field&quot;: &quot;uri&quot;,
+    &quot;content&quot;: &quot;http://example.com/ID&quot;, // This value is shown on the preview
+    &quot;label&quot;: &quot;URI&quot;,                     // This value is shown on the editor 
+    &quot;type&quot;: &quot;uri&quot;
+  },
+  {
+    &quot;field&quot;: &quot;&quot;,                        // This fields value is not picked from the data
+    &quot;content&quot;: &quot;Text&quot;,
+    &quot;label&quot;: &quot;Text&quot;,
+    &quot;type&quot;: &quot;text&quot;                      // text type means that the value can be inputted from editor and it&#39;s not picked from the data.
+  },
+  {
+    &quot;field&quot;: &quot;gatheringEvent.dateBegin&quot;,
+    &quot;label&quot;: &quot;Start date&quot;
+  },
+  {
+    &quot;field&quot;: &quot;gatheringEvent.dateEnd&quot;,
+    &quot;label&quot;: &quot;End date&quot;
+  },
+  {
+    &quot;field&quot;: &quot;keywords&quot;,
+    &quot;isArray&quot;: true,                    // If the data contains an array this needs to be set to true. In the editor setting join by value on this fields tells how the different values are joined together. 
+    &quot;label&quot;: &quot;Keywords&quot;
+  },
+  //...
+]</code></pre></div><p>When the user imports excel file available fields are automatically generated based on the first
+row on the excel.</p>
+<p>More information about all the available inputs, outputs and methods of the ll-label-designer
+component can found <a href="../../components/LabelDesignerComponent.html">here</a>.</p>
+
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+        <!-- END CONTENT -->
+    </div>
+</div>
+
+<script>
+    var COMPODOC_CURRENT_PAGE_DEPTH = 2;
+    var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+      var COMPODOC_CURRENT_PAGE_URL = 'angular-component.html';
+</script>
+
+<script src="../../js/libs/custom-elements.min.js"></script>
+<script src="../../js/libs/lit-html.js"></script>
+<!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+<script src="../../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+<script src="../../js/menu-wc.js" defer></script>
+
+<script src="../../js/libs/bootstrap-native.js"></script>
+
+<script src="../../js/libs/es6-shim.min.js"></script>
+<script src="../../js/libs/EventDispatcher.js"></script>
+<script src="../../js/libs/promise.min.js"></script>
+<script src="../../js/libs/zepto.min.js"></script>
+
+<script src="../../js/compodoc.js"></script>
+
+<script src="../../js/tabs.js"></script>
+<script src="../../js/menu.js"></script>
+<script src="../../js/libs/clipboard.min.js"></script>
+<script src="../../js/libs/prism.js"></script>
+<script src="../../js/sourceCode.js"></script>
+    <script src="../../js/search/search.js"></script>
+    <script src="../../js/search/lunr.min.js"></script>
+    <script src="../../js/search/search-lunr.js"></script>
+    <script src="../../js/search/search_index.js"></script>
+<script src="../../js/lazy-load-graphs.js"></script>
+
+
+</body>
+</html>
