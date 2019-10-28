@@ -58,6 +58,9 @@ export class LabelValueMapComponent {
   }
 
   addNewField(field: ILabelField) {
+    if (!field) {
+      return;
+    }
     let fieldMap = {};
     if (this.data) {
       fieldMap = this.addByData(field);

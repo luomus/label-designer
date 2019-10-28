@@ -48,7 +48,7 @@
       <ll-field-settings [allowDelete]="canDelete" [field]="field" (fieldChange)="fieldUpdate($event, i)" (fieldRemove)="fieldRemove(i)"></ll-field-settings>
     </div>
   </div>
-  <ll-field-add *ngIf="showFieldFont" [availableFields]="availableFields" (add)="fieldAdd($event)"></ll-field-add>
+  <ll-available-fields *ngIf="showFieldFont" [availableFields]="availableFields" (valueChange)="fieldAdd($event)"></ll-available-fields>
 </ng-container>
 <ng-template #missingField>
   <h3 class="first">{{ 'Field' | translate }}</h3>
@@ -64,7 +64,7 @@
       <td></td>
       <td>
         <select class="form-control" (change)="change('border', $event.target.value)">
-          <option *ngFor="let border of borders | keyvalue" [value]="border.value" [selected]="border.value === setup.border">{{border.key | translate}}</option>
+          <option *ngFor="let border of borders | keyvalue" [value]="border.value" [selected]="border.value === setup.border">{{ border.key | translate }}</option>
         </select>
       </td>
     </tr>

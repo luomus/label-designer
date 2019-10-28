@@ -33,6 +33,7 @@ const style = `
   overflow: hidden;
 }
 .ll-label {
+  direction: ltr;
   position: relative;
   overflow: hidden;
 }

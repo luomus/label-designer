@@ -3,7 +3,7 @@
     <td>{{ 'Magnify editor by' | translate }}:</td>
     <td>
       <select class="form-control" (change)="change('magnification', +$event.target.value)">
-        <option *ngFor="let mag of magnifications" [value]="mag" [selected]="mag === viewSettings.magnification">{{mag}}x </option>
+        <option *ngFor="let mag of magnifications" [value]="mag" [selected]="mag === viewSettings.magnification">{{ mag }}x </option>
       </select>
     </td>
   </tr>
@@ -11,7 +11,7 @@
     <td>{{ 'Magnify preview by' | translate }}:</td>
     <td>
       <select class="form-control" (change)="change('previewMagnification', +$event.target.value)">
-        <option *ngFor="let mag of magnifications" [value]="mag" [selected]="mag === viewSettings.previewMagnification">{{mag}}x </option>
+        <option *ngFor="let mag of magnifications" [value]="mag" [selected]="mag === viewSettings.previewMagnification">{{ mag }}x </option>
       </select>
     </td>
   </tr>
@@ -38,7 +38,7 @@
     <td>
       <ll-icon [type]="'check'" [size]="20" *ngIf="viewSettings.grid === g"></ll-icon>
     </td>
-    <td style="text-align: right">{{g}}</td>
+    <td style="text-align: right">{{ g }}</td>
     <td>&nbsp;mm</td>
     <td style="width: 184px;"></td>
   </tr>

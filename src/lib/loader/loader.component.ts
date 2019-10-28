@@ -5,64 +5,53 @@ import { Component, Input } from '@angular/core';
  */
 @Component({
   selector: 'll-loader',
-  template: `<div *ngIf="loading" class="ll-ellipsis"><div></div><div></div><div></div><div></div></div>`,
+  template: `
+      <div *ngIf="loading" class="ll-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>`,
   styles: [`
-    .ll-ellipsis {
-      display: inline-block;
-      position: relative;
-      width: 32px;
-      height: 15px;
-    }
-    .ll-ellipsis div {
-      position: absolute;
-      top: 13px;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #333;
-      animation-timing-function: cubic-bezier(0, 1, 1, 0);
-    }
-    .ll-ellipsis div:nth-child(1) {
-      left: 3px;
-      animation: ll-ellipsis1 0.6s infinite;
-    }
-    .ll-ellipsis div:nth-child(2) {
-      left: 3px;
-      animation: ll-ellipsis2 0.6s infinite;
-    }
-    .ll-ellipsis div:nth-child(3) {
-      left: 13px;
-      animation: ll-ellipsis2 0.6s infinite;
-    }
-    .ll-ellipsis div:nth-child(4) {
-      left: 22px;
-      animation: ll-ellipsis3 0.6s infinite;
-    }
-    @keyframes ll-ellipsis1 {
-      0% {
-        transform: scale(0);
+      .ll-loader {
+          display: inline-block;
+          position: relative;
+          width: 27px;
+          height: 27px;
       }
-      100% {
-        transform: scale(1);
-      }
-    }
-    @keyframes ll-ellipsis3 {
-      0% {
-        transform: scale(1);
-      }
-      100% {
-        transform: scale(0);
-      }
-    }
-    @keyframes ll-ellipsis2 {
-      0% {
-        transform: translate(0, 0);
-      }
-      100% {
-        transform: translate(9px, 0);
-      }
-    }
 
+      .ll-loader div {
+          display: inline-block;
+          position: absolute;
+          left: 3px;
+          width: 4px;
+          background: #333;
+          animation: ll-loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+      }
+
+      .ll-loader div:nth-child(1) {
+          left: 4px;
+          animation-delay: -0.24s;
+      }
+
+      .ll-loader div:nth-child(2) {
+          left: 10px;
+          animation-delay: -0.12s;
+      }
+
+      .ll-loader div:nth-child(3) {
+          left: 16px;
+      }
+
+      @keyframes ll-loader {
+          0% {
+              top: 3px;
+              height: 25px;
+          }
+          50%, 100% {
+              top: 9px;
+              height: 13px;
+          }
+      }
   `]
 })
 export class LoaderComponent {

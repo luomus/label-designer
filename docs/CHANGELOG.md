@@ -1,3 +1,16 @@
+<a name="3.2.0"></a>
+# 3.2.0 (2019-10-25)
+
+### Features
+* **editor:** added column mapping when user is importing a file.
+* **editor:** added more options to line spacing.
+* **editor:** Moved add to backside select in label field higher.
+* **editor:** improved border printing on the pdf.
+* **editor:** improved loading pdf indicator.
+
+### Bug fixes
+* **editor:** fix an issue with two sided printing where the text lines where not rendered correctly
+
 <a name="3.1.8"></a>
 # 3.1.8 (2019-10-18)
 

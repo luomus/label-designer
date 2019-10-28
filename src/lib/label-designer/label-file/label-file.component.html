@@ -51,10 +51,11 @@
 <table class="icon">
   <tr class="link" (click)="print()" [class.disabled]="!data || data.length === 0">
     <td>
+      <ll-loader [loading]="pdfLoading"></ll-loader>
     </td>
     <td>
       <ll-label-print #printBtn [qrCodeErrorCorrectionLevel]="qrCodeErrorCorrectionLevel" [visible]="false" [btnClass]="'menu-item'" [setup]="setup" [data]="data" (html)="onHtml($event)" (pressed)="startPdfLoading()">
-        {{ 'Download labels (pdf)' | translate }}...<ll-loader [loading]="pdfLoading"></ll-loader>
+        {{ 'Download labels (pdf)' | translate }}...
       </ll-label-print>
     </td>
   </tr>

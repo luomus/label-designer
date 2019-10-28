@@ -92,6 +92,7 @@ export interface LabelDesignerTranslationsInterface {
   'Are you sure that you want to remove this?'?: string;
   'Could not find label information from the file!'?: string;
   'Map values'?: string;
+  'Map column'?: string;
   'Add unique values from data'?: string;
   'Making QR Code smaller than 10mm is possible but not recommended'?: string;
   'Are you sure that you want to start a new empty label?'?: string;

@@ -22,7 +22,7 @@
           <qrcode [qrdata]="field.content" [size]="size" [level]="'M'" [usesvg]="true"></qrcode>
         </ng-container>
         <ng-template #plainText>
-          {{field.label}}<span *ngIf="!l" [innerHTML]="field.separator | separator"></span>
+          {{ field.label }}<span *ngIf="!l" [innerHTML]="field.separator | separator"></span>
         </ng-template>
       </ng-container>
     </div>

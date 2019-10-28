@@ -124,6 +124,9 @@ export class LabelSettingsComponent implements OnInit {
   }
 
   fieldAdd(labelField: ILabelField) {
+    if (!labelField) {
+      return;
+    }
     const {itemIdx, location} = this.findItem();
     if (itemIdx === -1) {
       return;

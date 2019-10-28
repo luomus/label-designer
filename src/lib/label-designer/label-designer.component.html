@@ -8,7 +8,7 @@
       <li [class.active]="_active === 'settings'" (click)="_active = 'settings'"><a>{{ 'Settings' | translate }}</a></li>
       <li [class.active]="_active === 'map'" (click)="_active = 'map'"><a>{{ 'Map values' | translate }}</a></li>
       <li [class.active]="_active === 'help'" (click)="_active = 'help'"><a>{{ 'Help' | translate }}</a></li>
-      <li class="info">{{filename$ | async}}</li>
+      <li class="info">{{ filename$ | async }}</li>
     </ul>
     <div class="clear"></div>
   </div>
@@ -166,7 +166,7 @@
   <div style="text-align: center; margin: 0 0 20px 0">
     <ll-icon [type]="'logo'" [size]="72"></ll-icon>
     <div style="margin-top: -5px">
-      <small>{{ 'Version' | translate }} {{version}}</small>
+      <small>{{ 'Version' | translate }} {{ version }}</small>
     </div>
   </div>
 
@@ -187,7 +187,7 @@
     <tr><td>{{ 'Range end' | translate }}:</td><td><input (change)="updateGenerate('rangeEnd', $event.target.value)" [value]="generate.rangeEnd || ''" type="text" [class.error]="!(generate.rangeEnd | isNumeric)" class="form-control input-sm"></td></tr>
     <tr *ngIf="generateFields.length > 0"><td colspan="2">&nbsp;</td></tr>
     <tr *ngFor="let field of generateFields;">
-      <td>{{field.label}}:</td><td><input [value]="generate.data[(field | fieldKey)] || ''" (change)="updateGenerate(field, $event.target.value, true)" type="text" class="form-control input-sm"></td>
+      <td>{{ field.label }}:</td><td><input [value]="generate.data[(field | fieldKey)] || ''" (change)="updateGenerate(field, $event.target.value, true)" type="text" class="form-control input-sm"></td>
     </tr>
   </table>
 </ng-template>
@@ -195,7 +195,12 @@
   <button (click)="generateData()" class="btn btn-default btn-sm pull-right">{{ 'Generate' | translate }}</button>
 </ng-template>
 <ng-template #excelTpl>
-  <ll-label-excel-file #excelFile [defaultDomain]="defaultDomain"></ll-label-excel-file>
+  <ll-label-excel-file #excelFile
+                       [defaultDomain]="defaultDomain"
+                       [availableFields]="availableFields"
+                       [columnMap]="fileColumnMap"
+                       (columnMapChange)="fileColumnMapChange.emit($event)"
+  ></ll-label-excel-file>
 </ng-template>
 <ng-template #excelActionsTpl>
   <button (click)="loadExcelData()" class="btn btn-default btn-sm pull-right">{{ 'Load' | translate }}</button>

@@ -5,27 +5,31 @@ import { FieldType, ILabelField } from '../../../label-designer.interface';
  * @internal
  */
 @Component({
-  selector: 'll-field-add',
-  templateUrl: './field-add.component.html',
-  styleUrls: ['./field-add.component.scss'],
+  selector: 'll-available-fields',
+  templateUrl: './available-fields.component.html',
+  styleUrls: ['./available-fields.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FieldAddComponent {
+export class AvailableFieldsComponent {
 
+  @Input() includePseudoFields = true;
+  @Input() placeholder = 'add';
   @Input() availableFields: ILabelField[];
+  @Input() value = '';
 
-  @Output() add = new EventEmitter<ILabelField>();
+  @Output() valueChange = new EventEmitter<ILabelField>();
 
   fieldType = FieldType;
 
-
-  doAdd(event: Event) {
+  doValueSelect(event: Event) {
     const select = event.target as HTMLSelectElement;
     const value = select.value;
     select.value = '';
     const idx = this.availableFields.findIndex((v) => v.field === value);
     if (idx > -1) {
-      this.add.emit({...this.availableFields[idx]});
+      this.valueChange.emit({...this.availableFields[idx]});
+    } else {
+      this.valueChange.emit(null);
     }
   }
 }

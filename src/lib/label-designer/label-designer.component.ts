@@ -17,6 +17,7 @@ import {
 import {
   FieldType,
   IAddLabelEvent,
+  IColumnMap,
   ILabelField,
   ILabelItem,
   ILabelPdf,
@@ -97,7 +98,7 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
   /**
    * @internal
    */
-  version = '3.1.7';
+  version = '3.2.0';
   /**
    * @internal
    */
@@ -136,6 +137,10 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
    * Preset setups that the user can pick from the file menu.
    */
   @Input() presets: PresetSetup[];
+  /**
+   * Map spreadsheet columns to where fields
+   */
+  @Input() fileColumnMap: IColumnMap;
 
   /**
    * Event that triggers when the html for the label is generated. Event holds the desired filename and the html string
@@ -173,6 +178,11 @@ export class LabelDesignerComponent implements OnInit, OnDestroy {
    * Triggered when pdf loading is changed
    */
   @Output() pdfLoadingChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  /**
+   * Triggered when spreadsheet columns mapping changes
+   */
+  @Output() fileColumnMapChange: EventEmitter<IColumnMap> = new EventEmitter<IColumnMap>();
 
   /**
    * @internal

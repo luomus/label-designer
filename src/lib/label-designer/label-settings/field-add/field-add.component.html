@@ -1,6 +1,0 @@
-<select (change)="doAdd($event)" class="form-control">
-  <option value="">{{ 'add' | translate }}...</option>
-  <ng-container *ngFor="let field of availableFields | sort:'label'">
-    <option [value]="field.field" *ngIf="field.type !== fieldType.qrCode">{{field.label}}</option>
-  </ng-container>
-</select>

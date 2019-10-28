@@ -3,7 +3,7 @@
 </ng-container>
 <ng-template #label>
   <div [title]="field.label" class="ellipsis" style="width: 205px;">
-    {{field.label}}
+    {{ field.label }}
   </div>
 </ng-template>
 <div class="more" (click)="toggleMore()" *ngIf="field.type !== fieldType.qrCode">

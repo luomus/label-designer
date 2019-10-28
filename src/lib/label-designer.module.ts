@@ -16,7 +16,7 @@ import { FontSettingsComponent } from './label-designer/label-settings/font-sett
 import { MarginSettingsComponent } from './label-designer/label-settings/margin-settings/margin-settings.component';
 import { FieldSettingsComponent } from './label-designer/label-settings/field-settings/field-settings.component';
 import { LabelFileComponent } from './label-designer/label-file/label-file.component';
-import { FieldAddComponent } from './label-designer/label-settings/field-add/field-add.component';
+import { AvailableFieldsComponent } from './label-designer/label-settings/available-fields/available-fields.component';
 import { SearchFieldsPipe } from './label-designer/label-fields-available/search-fields.pipe';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { RemoveSuffixPipe } from './label-designer/label-file/remove-suffix.pipe';
@@ -57,7 +57,7 @@ import { IsNumericPipe } from './pipe/is-numeric.pipe';
     MarginSettingsComponent,
     FieldSettingsComponent,
     LabelFileComponent,
-    FieldAddComponent,
+    AvailableFieldsComponent,
     SearchFieldsPipe,
     RemoveSuffixPipe,
     InfoWindowComponent,

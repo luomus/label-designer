@@ -3,13 +3,13 @@
     <span class="header-icon right">
       <ll-icon [type]="open ? 'down' : 'up'"></ll-icon>
     </span>
-    {{title}}
+    {{ title }}
   </h3>
 </div>
 <div *ngIf="open" class="mapping-container">
   <div class="actions">
     <div class="link remove-btn" (click)="remove.emit()"><ll-icon type="close"></ll-icon></div>
-    <button class="btn btn-default btn-sm" [disabled]="mapping[''] === '' || !!mapping['']" type="button" (click)="addNew()">{{'add' | translate}}...</button>
+    <button class="btn btn-default btn-sm" [disabled]="mapping[''] === '' || !!mapping['']" type="button" (click)="addNew()">{{ 'add' | translate }}...</button>
     <ll-icon class="link refresh-btn" type="refresh" (click)="refresh.emit()" [title]="'Add unique values from data' | translate"></ll-icon>
   </div>
   <div *ngFor="let map of mapping | keyvalue">

@@ -23,6 +23,7 @@ so that this styling will be included in the generated pdf
   overflow: hidden;
 }
 .ll-label {
+  direction: ltr;
   position: relative;
   overflow: hidden;
 }

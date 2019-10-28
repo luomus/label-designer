@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FieldAddComponent } from './field-add.component';
+import { AvailableFieldsComponent } from './available-fields.component';
 
 describe('FieldAddComponent', () => {
-  let component: FieldAddComponent;
-  let fixture: ComponentFixture<FieldAddComponent>;
+  let component: AvailableFieldsComponent;
+  let fixture: ComponentFixture<AvailableFieldsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FieldAddComponent ]
+      declarations: [ AvailableFieldsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FieldAddComponent);
+    fixture = TestBed.createComponent(AvailableFieldsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

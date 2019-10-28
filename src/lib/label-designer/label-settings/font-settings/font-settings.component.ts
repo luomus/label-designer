@@ -31,7 +31,13 @@ export class FontSettingsComponent implements OnInit {
     0.9,
     1,
     1.15,
-    1.5,
+    1.2,
+    1.25,
+    1.3,
+    1.35,
+    1.4,
+    1.45,
+    1.50,
     1.75,
     2
   ];

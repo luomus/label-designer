@@ -48,6 +48,20 @@ export class LabelPageComponent implements AfterViewInit {
     });
   }
 
+  shouldPrintBorderVertical(idx: number): boolean {
+    if (!this._dim) {
+      return false;
+    }
+    return idx < this._dim.rows;
+  }
+
+  shouldPrintBorderHorizontal(idx: number): boolean {
+    if (!this._dim) {
+      return false;
+    }
+    return idx % this._dim.rows === 0;
+  }
+
   @Input()
   set pageLayout(dim: IPageLayout) {
     this._dim = dim;

@@ -50,7 +50,7 @@
       <td>
         <select class="form-control input-sm" style="width: 60px;" (change)="change('font-size.pt', $event.target.value, true)">
           <option value=""></option>
-          <option *ngFor="let size of fontSizes" [value]="size" [selected]="fontSettings && size === fontSettings['font-size.pt']">{{size}}</option>
+          <option *ngFor="let size of fontSizes" [value]="size" [selected]="fontSettings && size === fontSettings['font-size.pt']">{{ size }}</option>
         </select>
       </td>
     </tr>
@@ -59,7 +59,7 @@
       <td>
         <select class="form-control input-sm" style="width: 60px;" (change)="change('line-height', $event.target.value)">
           <option value=""></option>
-          <option *ngFor="let size of lineHeight" [value]="size" [selected]="fontSettings && size == fontSettings['line-height']">{{size}}</option>
+          <option *ngFor="let size of lineHeight" [value]="size" [selected]="fontSettings && size == fontSettings['line-height']">{{ size }}</option>
         </select>
       </td>
     </tr>
@@ -68,7 +68,7 @@
       <td>
         <select class="form-control input-sm" (change)="change('text-transform', $event.target.value)">
           <option value=""></option>
-          <option *ngFor="let value of textTransform" [value]="value" [selected]="fontSettings && value === fontSettings['text-transform']">{{value | translate}}</option>
+          <option *ngFor="let value of textTransform" [value]="value" [selected]="fontSettings && value === fontSettings['text-transform']">{{ value | translate }}</option>
         </select>
       </td>
     </tr>

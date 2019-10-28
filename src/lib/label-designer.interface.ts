@@ -270,6 +270,10 @@ export interface ILabelValueMap {
   };
 }
 
+export interface IColumnMap {
+  [col: string]: string;
+}
+
 export interface ILabelData {
   [key: string]: string|number|boolean|string[];
 }
